@@ -6,7 +6,7 @@
 **
 ** DOS joystick reading defines / protos
 **
-** $Id: $
+** $Id: tl_joy.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_JOY_H_
@@ -27,5 +27,8 @@ extern int thin_joy_read(joy_t *joy);
 #endif /* !_TL_JOY_H_ */
 
 /*
-** $Log: $
+** $Log: tl_joy.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

@@ -6,7 +6,7 @@
 **
 ** DOS keyboard handling defines / protos
 **
-** $Id: $
+** $Id: tl_key.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_KEY_H_
@@ -142,5 +142,8 @@ extern void thin_key_set_repeat(bool state);
 #endif /* !_TL_KEY_H_ */
 
 /*
-** $Log: $
+** $Log: tl_key.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

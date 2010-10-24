@@ -8,7 +8,7 @@
 ** and the Allegro project for providing adequate interrupt
 ** documentation.
 **
-** $Id: $
+** $Id: tl_int.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <dos.h>
@@ -258,5 +258,8 @@ void thin_irq_disable(int irq)
 
 
 /*
-** $Log: $
+** $Log: tl_int.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

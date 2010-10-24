@@ -6,7 +6,7 @@
 **
 ** Bitmap object manipulation routines
 **
-** $Id: $
+** $Id: tl_bmp.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdio.h>
@@ -95,5 +95,8 @@ void thin_bmp_destroy(bitmap_t **bitmap)
 }
 
 /*
-** $Log: $
+** $Log: tl_bmp.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

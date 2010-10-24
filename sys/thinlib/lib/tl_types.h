@@ -6,7 +6,7 @@
 **
 ** type definitions for thinlib
 **
-** $Id: $
+** $Id: tl_types.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_TYPES_
@@ -57,5 +57,8 @@ typedef enum
 #endif /* !_TL_TYPES_ */
 
 /*
-** $Log: $
+** $Log: tl_types.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

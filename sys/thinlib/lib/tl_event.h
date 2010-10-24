@@ -6,7 +6,7 @@
 **
 ** event handling routines
 **
-** $Id: $
+** $Id: tl_event.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_EVENT_H_
@@ -76,5 +76,8 @@ extern void       thin_event_init(void);
 #endif /* !_TL_EVENT_H_ */
 
 /*
-** $Log: $
+** $Log: tl_event.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

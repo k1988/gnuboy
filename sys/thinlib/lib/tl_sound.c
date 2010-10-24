@@ -6,7 +6,7 @@
 **
 ** sound driver
 **
-** $Id: $
+** $Id: tl_sound.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include "tl_types.h"
@@ -116,5 +116,8 @@ void thin_sound_setrate(int sample_rate)
 }
 
 /*
-** $Log: $
+** $Log: tl_sound.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

@@ -6,7 +6,7 @@
 **
 ** DOS DirectPad Pro scanning code prototypes
 **
-** $Id: $
+** $Id: tl_dpp.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_DPP_H_
@@ -31,5 +31,8 @@ extern void thin_dpp_read(dpp_t *pad, int pad_num);
 #endif /* !_TL_DPP_H_ */
 
 /*
-** $Log: $
+** $Log: tl_dpp.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

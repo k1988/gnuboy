@@ -6,7 +6,7 @@
 **
 ** interrupt handling stuff
 **
-** $Id: $
+** $Id: tl_int.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_INT_H_
@@ -27,5 +27,8 @@ extern void thin_irq_disable(int irq);
 #endif /* !_TL_INT_H_ */
 
 /*
-** $Log: $
+** $Log: tl_int.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

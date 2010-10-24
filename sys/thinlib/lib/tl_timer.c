@@ -6,7 +6,7 @@
 **
 ** DOS timer routines
 **
-** $Id: $
+** $Id: tl_timer.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <go32.h>
@@ -134,5 +134,8 @@ void thin_timer_shutdown(void)
 }
 
 /*
-** $Log: $
+** $Log: tl_timer.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

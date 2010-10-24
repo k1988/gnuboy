@@ -6,7 +6,7 @@
 **
 ** thinlib video routines
 **
-** $Id: $
+** $Id: tl_video.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_VIDEO_H_
@@ -37,5 +37,8 @@ extern void thin_vid_customblit(bitmap_t *primary, int num_dirties,
 #endif /* !_TL_VIDEO_H_ */
 
 /*
-** $Log: $
+** $Log: tl_video.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

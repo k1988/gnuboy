@@ -5,7 +5,7 @@
 #
 # Copyright (C) 2001 Matthew Conte (matt@conte.com)
 #
-# $Id: $
+# $Id: Makefile,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 
 ################################
 # Configuration
@@ -97,4 +97,7 @@ include _dep
 
 ################################
 
-# $Log: $
+# $Log: Makefile,v $
+# Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+# initial import
+#

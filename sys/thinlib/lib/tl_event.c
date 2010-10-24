@@ -6,7 +6,7 @@
 **
 ** event handling routines
 **
-** $Id: $
+** $Id: tl_event.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include "tl_types.h"
@@ -136,5 +136,8 @@ void thin_event_init(void)
 
 
 /*
-** $Log: $
+** $Log: tl_event.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

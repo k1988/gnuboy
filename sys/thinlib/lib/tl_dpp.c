@@ -7,7 +7,7 @@
 ** DOS DirectPad Pro scanning code, based on code from
 ** DirectPad Pro (www.ziplabel.com), written by Earle F. Philhower, III
 **
-** $Id: $
+** $Id: tl_dpp.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <pc.h>
@@ -187,5 +187,8 @@ void thin_dpp_shutdown(void)
 
 
 /*
-** $Log: $
+** $Log: tl_dpp.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

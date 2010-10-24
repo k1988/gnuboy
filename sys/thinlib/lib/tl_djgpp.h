@@ -6,7 +6,7 @@
 **
 ** djgpp frigs
 **
-** $Id: $
+** $Id: tl_djgpp.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_DJGPP_H_
@@ -30,5 +30,8 @@ extern int thinlib_nearptr;
 #endif /* !_TL_DJGPP_H_ */
 
 /*
-** $Log: $
+** $Log: tl_djgpp.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

@@ -6,7 +6,7 @@
 **
 ** DOS mouse handling routines
 **
-** $Id: $
+** $Id: tl_mouse.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 /* TODO: add events to motion/button presses. */
@@ -219,5 +219,8 @@ int thin_mouse_init(int width, int height, int delta_shift)
 }
 
 /*
-** $Log: $
+** $Log: tl_mouse.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */
