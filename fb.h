@@ -1,16 +1,16 @@
 
 
-#ifndef __SCREEN_H__
-#define __SCREEN_H__
+#ifndef __FB_H__
+#define __FB_H__
 
 
 #include "defs.h"
 
 
 
-typedef struct screen_s
+struct fb
 {
-	byte *fb;
+	byte *ptr;
 	int w, h;
 	int pelsize;
 	int pitch;
@@ -19,10 +19,10 @@ typedef struct screen_s
 	{
 		int l, r;
 	} cc[3];
-} screen_t;
+};
 
 
-extern screen_t screen;
+extern struct fb fb;
 
 
 #endif
