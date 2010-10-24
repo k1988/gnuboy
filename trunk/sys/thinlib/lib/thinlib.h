@@ -6,7 +6,7 @@
 **
 ** main library header
 **
-** $Id: $
+** $Id: thinlib.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _THINLIB_H_
@@ -63,5 +63,8 @@ extern void thin_remove_exit(void (*func)(void));
 #endif /* !_THINLIB_H */
 
 /*
-** $Log: $
+** $Log: thinlib.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

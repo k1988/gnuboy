@@ -9,7 +9,7 @@
 ** Note: the information in this file has been gathered from many
 **  Internet documents, and from source code written by Ethan Brodsky.
 **
-** $Id: $
+** $Id: tl_sb.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdlib.h>
@@ -1046,5 +1046,8 @@ int thin_sb_start(sbmix_t fillbuf, void *user_data)
 }
 
 /*
-** $Log: $
+** $Log: tl_sb.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

@@ -6,7 +6,7 @@
 **
 ** thinlib sound routines
 **
-** $Id: $
+** $Id: tl_sound.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_SOUND_H_
@@ -44,5 +44,8 @@ extern void thin_sound_setrate(int sample_rate);
 #endif /* !_TL_SOUND_H_ */
 
 /*
-** $Log: $
+** $Log: tl_sound.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

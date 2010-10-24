@@ -6,7 +6,7 @@
 **
 ** Error logging header file
 **
-** $Id: $
+** $Id: tl_log.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_LOG_H_
@@ -19,5 +19,8 @@ extern void thin_assert(int expr, int line, const char *file, char *msg);
 #endif /* !_TL_LOG_H_ */
 
 /*
-** $Log: $
+** $Log: tl_log.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

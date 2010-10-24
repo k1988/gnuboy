@@ -6,7 +6,7 @@
 **
 ** VGA-related functions
 **
-** $Id: $
+** $Id: tl_vga.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdio.h>
@@ -377,5 +377,8 @@ void thin_vga_freewrite(int num_dirties, rect_t *dirty_rects)
 }
 
 /*
-** $Log: $
+** $Log: tl_vga.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

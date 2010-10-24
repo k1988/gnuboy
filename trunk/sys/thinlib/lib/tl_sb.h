@@ -6,7 +6,7 @@
 **
 ** DOS Sound Blaster header file
 **
-** $Id: $
+** $Id: tl_sb.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_SB_H_
@@ -31,5 +31,8 @@ extern void thin_sb_setrate(int rate);
 #endif /* !_TL_SB_H_ */
 
 /*
-** $Log: $
+** $Log: tl_sb.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

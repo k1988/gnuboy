@@ -6,7 +6,7 @@
 **
 ** Error logging functions
 **
-** $Id: $
+** $Id: tl_log.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdlib.h>
@@ -55,5 +55,8 @@ void thin_assert(int expr, int line, const char *file, char *msg)
 }
 
 /*
-** $Log: $
+** $Log: tl_log.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

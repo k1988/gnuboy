@@ -20,7 +20,7 @@
 ** thintest.cpp
 **
 ** thinlib test
-** $Id: thintest.cpp,v 1.3 2001/03/12 06:06:55 matt Exp $
+** $Id: thintest.cpp,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdio.h>
@@ -275,6 +275,9 @@ int main(void)
 
 /*
 ** $Log: thintest.cpp,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 ** Revision 1.3  2001/03/12 06:06:55  matt
 ** better keyboard driver, support for bit depths other than 8bpp
 **

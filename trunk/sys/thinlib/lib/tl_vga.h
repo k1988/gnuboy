@@ -6,7 +6,7 @@
 **
 ** VGA-specific thinlib routines
 **
-** $Id: $
+** $Id: tl_vga.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_VGA_H_
@@ -28,5 +28,8 @@ extern void thin_vga_freewrite(int num_dirties, rect_t *dirty_rects);
 #endif /* !_TL_VGA_H_ */
 
 /*
-** $Log: $
+** $Log: tl_vga.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

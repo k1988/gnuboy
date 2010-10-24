@@ -6,7 +6,7 @@
 **
 ** Bitmap object defines / prototypes
 **
-** $Id: $
+** $Id: tl_bmp.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_BMP_H_
@@ -43,5 +43,8 @@ extern void thin_bmp_destroy(bitmap_t **bitmap);
 #endif /* !_TL_BMP_H_ */
 
 /*
-** $Log: $
+** $Log: tl_bmp.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

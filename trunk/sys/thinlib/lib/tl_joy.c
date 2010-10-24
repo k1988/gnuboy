@@ -6,7 +6,7 @@
 **
 ** DOS joystick reading routines
 **
-** $Id: $
+** $Id: tl_joy.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <dos.h>
@@ -200,5 +200,8 @@ void thin_joy_shutdown(void)
 }
 
 /*
-** $Log: $
+** $Log: tl_joy.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

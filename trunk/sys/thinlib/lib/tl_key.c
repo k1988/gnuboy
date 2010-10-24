@@ -6,7 +6,7 @@
 **
 ** DOS keyboard handler
 **
-** $Id: $
+** $Id: tl_key.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdlib.h>
@@ -121,5 +121,8 @@ void thin_key_shutdown(void)
 }
 
 /*
-** $Log: $
+** $Log: tl_key.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

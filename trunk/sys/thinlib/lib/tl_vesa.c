@@ -6,7 +6,7 @@
 **
 ** VESA code.
 **
-** $Id: $
+** $Id: tl_vesa.c,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #include <stdio.h>
@@ -397,5 +397,8 @@ void thin_vesa_freewrite(int num_dirties, rect_t *dirty_rects)
 }
 
 /*
-** $Log: $
+** $Log: tl_vesa.c,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

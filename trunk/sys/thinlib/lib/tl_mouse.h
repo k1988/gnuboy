@@ -6,7 +6,7 @@
 **
 ** DOS mouse handling defines / prototypes
 **
-** $Id: $
+** $Id: tl_mouse.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_MOUSE_H_
@@ -36,5 +36,8 @@ extern uint8 thin_mouse_getpos(int *x, int *y);
 #endif /* !_TL_MOUSE_H_ */
 
 /*
-** $Log: $
+** $Log: tl_mouse.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */

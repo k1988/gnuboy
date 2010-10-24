@@ -6,7 +6,7 @@
 **
 ** DOS timer routine defines / prototypes
 **
-** $Id: $
+** $Id: tl_timer.h,v 1.1.1.1 2003/07/04 19:19:58 joshua Exp $
 */
 
 #ifndef _TL_TIMER_H_
@@ -21,5 +21,8 @@ extern void thin_timer_setrate(int hertz);
 #endif /* !_TL_TIMER_H_ */
 
 /*
-** $Log: $
+** $Log: tl_timer.h,v $
+** Revision 1.1.1.1  2003/07/04 19:19:58  joshua
+** initial import
+**
 */
