@@ -2,6 +2,7 @@
 
   * Dreamcast http://pqrs.org/dreamcast/software/dcgnuboy/
   * Dreamcast http://sourceforge.net/projects/gnuboydc/
+  * Dreamcast http://www.dcemu.co.uk/vbulletin/showthread.php?t=103584
   * Dingoo/Dingux, Joyrider, http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171
   * Dingoo/GnuBoy4D, SiENcE, http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html
   * Windows CE/Pocket PC/Windows Mobile/GAPI, WAC, http://gnuboyce.berlios.de/
@@ -13,3 +14,4 @@
   * NDS, http://www.pocketheaven.com/ph/wiki/GNUboy_DS
   * Pandora, http://www.gp32x.com/board/index.php?/topic/56916-gnuboy-updated/
   * GP2x, http://wiki.gp2x.org/wiki/GnuBoy2x
+  * DBox2 http://cvs.tuxbox.org/tuxbox/apps/tuxbox/funstuff/gnuboy/
