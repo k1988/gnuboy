@@ -1,0 +1,15 @@
+#summary Known GNUBoy ports
+
+  * Dreamcast http://pqrs.org/dreamcast/software/dcgnuboy/
+  * Dreamcast http://sourceforge.net/projects/gnuboydc/
+  * Dingoo/Dingux, Joyrider, http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171
+  * Dingoo/GnuBoy4D, SiENcE, http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html
+  * Windows CE/Pocket PC/Windows Mobile/GAPI, WAC, http://gnuboyce.berlios.de/
+  * Windows CE/Pocket PC/Windows Mobile/GAPI, Xetra, http://xetranet.free.fr/ipaq/gnuboy/
+  * Zaurus/Qtopia, http://www.slac.com/~mpilone/projects/qtopiagnuboy.phtml
+  * Zaurus/Qtopia, http://www.warmi.net/zaurus/gnuboy.shtml
+  * Gamecube/Wii/libogc, http://code.google.com/p/gnuboy-gx/
+  * Openmoko, http://wiki.openmoko.org/wiki/Gnuboy
+  * NDS, http://www.pocketheaven.com/ph/wiki/GNUboy_DS
+  * Pandora, http://www.gp32x.com/board/index.php?/topic/56916-gnuboy-updated/
+  * GP2x, http://wiki.gp2x.org/wiki/GnuBoy2x
