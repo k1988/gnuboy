@@ -3,7 +3,15 @@
   * Dreamcast http://pqrs.org/dreamcast/software/dcgnuboy/
   * Dreamcast http://sourceforge.net/projects/gnuboydc/
   * Dreamcast http://www.dcemu.co.uk/vbulletin/showthread.php?t=103584
-  * Dingoo/Dingux, Joyrider, http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171 there is also a Dingoo Native (µC/OS-II) version (unsure of  native version location and source for it)
+  * Dingoo/Dingux, Joyrider, 
+     * Dingux
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,82
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,70
+     * Native (µC/OS-II)
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,216
+        * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,159
   * Dingoo/Dingux, SiENcE - GnuBoy4D source location?
      * http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html
      * http://boards.dingoonity.org/dingux-releases/gnuboy4d-%28for-dingux%29-v1-0/msg20230/ 
