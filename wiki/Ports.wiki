@@ -4,7 +4,10 @@
   * Dreamcast http://sourceforge.net/projects/gnuboydc/
   * Dreamcast http://www.dcemu.co.uk/vbulletin/showthread.php?t=103584
   * Dingoo/Dingux, Joyrider, http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,171
-  * Dingoo/GnuBoy4D, SiENcE, http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html http://boards.dingoonity.org/dingux-releases/gnuboy4d-%28for-dingux%29-v1-0/msg20230/ source location?
+  * Dingoo/GnuBoy4D, SiENcE - source location?
+     * http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html
+     * http://boards.dingoonity.org/dingux-releases/gnuboy4d-%28for-dingux%29-v1-0/msg20230/ 
+     * http://sience.schattenkind.net/dingoo/SiENcE_downloads.htm
   * Windows CE/Pocket PC/Windows Mobile/GAPI, WAC, http://gnuboyce.berlios.de/
   * Windows CE/Pocket PC/Windows Mobile/GAPI, Xetra, http://xetranet.free.fr/ipaq/gnuboy/
   * Zaurus/Qtopia, http://www.slac.com/~mpilone/projects/qtopiagnuboy.phtml
