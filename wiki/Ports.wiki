@@ -25,4 +25,5 @@
   * NDS, http://www.pocketheaven.com/ph/wiki/GNUboy_DS
   * Pandora, http://www.gp32x.com/board/index.php?/topic/56916-gnuboy-updated/
   * GP2x, http://wiki.gp2x.org/wiki/GnuBoy2x
+  * Wiz, Lemonboy (with menu) http://dl.openhandhelds.org/cgi-bin/wiz.cgi?0,0,0,0,46,133
   * DBox2 http://cvs.tuxbox.org/tuxbox/apps/tuxbox/funstuff/gnuboy/
