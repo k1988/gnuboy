@@ -103,8 +103,13 @@ static void initmem(void *mem, int size)
 
 static byte *loadfile(FILE *f, int *len)
 {
-	int c, l = 0, p = 0;
-	byte *d = 0, buf[512];
+	int l = 0, c = 0;
+	byte *d = NULL;
+#define SLOW_AND_SAFE_LOADER
+#undef SLOW_AND_SAFE_LOADER
+#ifdef SLOW_AND_SAFE_LOADER
+	int p = 0;
+	byte buf[512];
 
 	for(;;)
 	{
@@ -116,6 +121,24 @@ static byte *loadfile(FILE *f, int *len)
 		memcpy(d+p, buf, c);
 		p += c;
 	}
+#else /* fast and no space check */
+	/* alloc and read once - NOTE no sanity check on filesize */
+	fseek(f, 0, SEEK_END);
+	l = ftell(f);
+	fseek(f, 0, SEEK_SET);
+	d = (byte*) malloc(l);
+	if (d != NULL)
+	{
+		c = fread((void *) d, (size_t) l, 1, f);
+		if (c != 1)
+		{
+			free(d);
+			d = NULL;
+			l = 0;
+			/* NOTE if this fails caller doesn't catch it (ditto the slow and "safe" version) */
+		}
+	}
+#endif /* SLOW_AND_SAFE_LOADER */
 	*len = l;
 	return d;
 }
