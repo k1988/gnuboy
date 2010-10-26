@@ -8,7 +8,7 @@
 
 
 
-CVS 1.0.4
+RELEASE 1.0.4
 
 Fixed a possible out-of-bounds access which could allow a hacked savestate to
 crash gnuboy and possibly run arbitrary code on the host machine. Challenge:
@@ -31,6 +31,10 @@ in the right direction)
 
 Fixed the GDMA behavior so it consumes cpu cycles as it should. This fixes the
 intro scene animation in 'Magical Drop'
+
+Fixed Windows build problem with missing icon (due to mingw32 rename to
+windows). Tested with gcc version 3.4.2 (mingw-special) and SDL 1.2.13
+provided with Dev-C++ 4.9.9.2
 
 
 
