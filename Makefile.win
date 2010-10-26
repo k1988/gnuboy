@@ -1,3 +1,9 @@
+# 
+#   make -f Makefile.win
+#
+# Force rebuild from scratch:
+#   make -B -f Makefile.win
+# 
 
 CC = gcc
 AS = $(CC)
