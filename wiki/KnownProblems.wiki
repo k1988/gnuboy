@@ -1,0 +1,12 @@
+#summary Known issues, aka todo list :-)
+
+= Known problems =
+
+  * Glitch in intro/cut scene for GBC games The Legend of Zelda - Oracle of Seasons and also The Legend of Zelda - Oracle of Ages. Bars at top of screen should be black. [http://sourceforge.net/projects/gambatte/ Gambatte] does not have this problem
+
+= To Do =
+
+  * zip file support?
+  * Find enhancements implemented in other ports and integrate into this release
+  * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
+  * Check Gambatte test cases, there are many hardware tests cartridges implemented in that project
