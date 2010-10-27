@@ -11,3 +11,6 @@
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check Gambatte test cases, there are many hardware tests cartridges implemented in that project
   * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI
+  * Add a menu (avoid command line), see Lemon Boy, Oh Boy, various console ports, etc.
+  * check performance of memcpy, some ports of gnuboy implement a custom memcpy with the reason that it gained frames per seconds.
+  * add screen shots to save slots (related to "add menu")
