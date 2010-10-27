@@ -1,0 +1,31 @@
+#summary Notes on building/running
+
+GCC is known to work on a number on platforms.
+
+= Windows =
+
+Known to build/run with gcc and SDL (1.2).
+
+{{{
+make -B -f Makfile.win
+}}}
+
+= Linux =
+
+{{{
+./configure --with-sdl
+make
+}}}
+
+= Running =
+
+NOTE SDL will take what ever surface it can find, if you are running dual/multi head displays you may get odd results in fullscreen mode (the default). Suggestion try running in a window.
+
+{{{
+./sdlgnuboy --fullscreen=0 ROM_NAME  # start in a window
+./sdlgnuboy ROM_NAME  # full screen is the default
+}}}
+
+
+Surkow wrote:
+> when I started sldgnuboy it appeared fullscreen in the middle of my two screens
