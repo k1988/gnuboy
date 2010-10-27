@@ -94,18 +94,44 @@ void rtc_tick()
 
 void rtc_save_internal(FILE *f)
 {
+	time_t rt;
+    
+	rt = time(0);
+#ifdef GNUBOY_USE_BINARY_RTC_FILES
+	/* WARNING using binary real time clock files is not portable! */
+	fwrite((const void*)&rtc.carry, sizeof(rtc.carry), 1, f);
+	fwrite((const void*)&rtc.stop, sizeof(rtc.stop), 1, f);
+	fwrite((const void*)&rtc.d, sizeof(rtc.d), 1, f);
+	fwrite((const void*)&rtc.h, sizeof(rtc.h), 1, f);
+	fwrite((const void*)&rtc.m, sizeof(rtc.m), 1, f);
+	fwrite((const void*)&rtc.s, sizeof(rtc.s), 1, f);
+	fwrite((const void*)&rtc.t, sizeof(rtc.t), 1, f);
+	fwrite((const void*)&rt, sizeof(rt), 1, f);
+#else /* GNUBOY_USE_BINARY_RTC_FILES */
 	fprintf(f, "%d %d %d %02d %02d %02d %02d\n%d\n",
-		rtc.carry, rtc.stop, rtc.d, rtc.h, rtc.m, rtc.s, rtc.t,
-		time(0));
+		rtc.carry, rtc.stop, rtc.d, rtc.h, rtc.m, rtc.s, rtc.t, rt);
+#endif /* GNUBOY_USE_BINARY_RTC_FILES */
 }
 
 void rtc_load_internal(FILE *f)
 {
-	int rt = 0;
+	time_t rt = 0;
+#ifdef GNUBOY_USE_BINARY_RTC_FILES
+	/* WARNING using binary real time clock files is not portable! */
+	fread(&rtc.carry, sizeof(rtc.carry), 1, f);
+	fread(&rtc.stop, sizeof(rtc.stop), 1, f);
+	fread(&rtc.d, sizeof(rtc.d), 1, f);
+	fread(&rtc.h, sizeof(rtc.h), 1, f);
+	fread(&rtc.m, sizeof(rtc.m), 1, f);
+	fread(&rtc.s, sizeof(rtc.s), 1, f);
+	fread(&rtc.t, sizeof(rtc.t), 1, f);
+	fread(&rt, sizeof(rt), 1, f);
+#else /* GNUBOY_USE_BINARY_RTC_FILES */
 	fscanf(
 		f, "%d %d %d %02d %02d %02d %02d\n%d\n",
 		&rtc.carry, &rtc.stop, &rtc.d,
 		&rtc.h, &rtc.m, &rtc.s, &rtc.t, &rt);
+#endif /* GNUBOY_USE_BINARY_RTC_FILES */
 	while (rtc.t >= 60) rtc.t -= 60;
 	while (rtc.s >= 60) rtc.s -= 60;
 	while (rtc.m >= 60) rtc.m -= 60;
@@ -116,15 +142,4 @@ void rtc_load_internal(FILE *f)
 	if (rt) rt = (time(0) - rt) * 60;
 	if (syncrtc) while (rt-- > 0) rtc_tick();
 }
-
-
-
-
-
-
-
-
-
-
-
 
