@@ -4,7 +4,7 @@ Also see [Ports]
 
 = Open Source Emulators =
 
-  * http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of ColorIt library and MasterBoy for PSP), C (windows only?)
-  * http://sourceforge.net/projects/gambatte/ C++ and QT based (there is an SDL port in SVN
+  * Heig-Boy http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of ColorIt library and MasterBoy for PSP), C (windows only?)
+  * Gambatte http://sourceforge.net/projects/gambatte/ C++ and QT based (there is an SDL port in SVN
   * http://mednafen.sourceforge.net/ mix of C and C++ and SDL
   * Visual Boy Advance now has GB and GBC support http://sourceforge.net/projects/vbam/ (note VisualBoyAdvance 2 does not appear to support GB or GBC)
