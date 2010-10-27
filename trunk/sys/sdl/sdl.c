@@ -504,7 +504,33 @@ void pcm_close()
 }
 
 
+#ifdef GNUBOY_USE_SDL_TIMERS
+void *sys_timer()
+{
+	Uint32 *tv;
+	
+	tv = malloc(sizeof *tv);
+	*tv = SDL_GetTicks() * 1000;
+	return tv;
+}
 
+int sys_elapsed(Uint32 *cl)
+{
+	Uint32 now;
+	Uint32 usecs;
 
+	now = SDL_GetTicks() * 1000;
+	usecs = now - *cl;
+	*cl = now;
+	return usecs;
+}
 
+void sys_sleep(int us)
+{
+	/* dbk: for some reason 2000 works..
+	   maybe its just compensation for the time it takes for SDL_Delay to
+	   execute, or maybe sys_timer is too slow */
+	SDL_Delay(us/1000);
+}
 
+#endif /* GNUBOY_USE_SDL_TIMERS */
