@@ -10,3 +10,4 @@
   * Find enhancements implemented in other ports and integrate into this release
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check Gambatte test cases, there are many hardware tests cartridges implemented in that project
+  * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI
