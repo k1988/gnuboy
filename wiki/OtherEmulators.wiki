@@ -2,5 +2,5 @@
 
 = Open Source Emulators =
 
-  * http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of MasterBoy for PSP)
+  * http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of ColorIt library and MasterBoy for PSP)
   * http://sourceforge.net/projects/gambatte/ C++ and QT based (there is an SDL port in SVN
