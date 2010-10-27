@@ -1,5 +1,7 @@
 #summary Other Open Source Emulators
 
+Also see [Ports]
+
 = Open Source Emulators =
 
   * http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of ColorIt library and MasterBoy for PSP)
