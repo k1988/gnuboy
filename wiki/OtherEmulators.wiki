@@ -1,0 +1,6 @@
+#summary Other Open Source Emulators
+
+= Open Source Emulators =
+
+  * http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of MasterBoy for PSP)
+  * http://sourceforge.net/projects/gambatte/ C++ and QT based (there is an SDL port in SVN
