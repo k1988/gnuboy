@@ -8,37 +8,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-char *strdup();
+/*char *strdup();   this bothers me, this should be picked up from string.h */
 
-#include <SDL/SDL.h>
-
-void *sys_timer()
-{
-	Uint32 *tv;
-	
-	tv = malloc(sizeof *tv);
-	*tv = SDL_GetTicks() * 1000;
-	return tv;
-}
-
-int sys_elapsed(Uint32 *cl)
-{
-	Uint32 now;
-	Uint32 usecs;
-
-	now = SDL_GetTicks() * 1000;
-	usecs = now - *cl;
-	*cl = now;
-	return usecs;
-}
-
-void sys_sleep(int us)
-{
-	/* dbk: for some reason 2000 works..
-	   maybe its just compensation for the time it takes for SDL_Delay to
-	   execute, or maybe sys_timer is too slow */
-	SDL_Delay(us/1000);
-}
+/*
+** Timer functions should be picked up from sdl.c (via GNUBOY_USE_SDL_TIMERS)
+**  void *sys_timer();
+**  int sys_elapsed(Uint32 *cl);
+**  void sys_sleep(int us);
+*/
 
 void sys_sanitize(char *s)
 {
@@ -73,5 +50,4 @@ void sys_initpath(char *exe)
 void sys_checkdir(char *path, int wr)
 {
 }
-
 
