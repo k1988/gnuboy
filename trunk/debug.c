@@ -566,6 +566,7 @@ rcvar_t debug_exports[] =
 
 void debug_disassemble(addr a, int c)
 {
+#ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
 	static int i, j, k;
 	static byte code;
 	static byte ops[3];
@@ -660,30 +661,6 @@ void debug_disassemble(addr a, int c)
 		fflush(stdout);
 		c--;
 	}
+#endif /* GNUBOY_DISABLE_DEBUG_DISASSEMBLE */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
