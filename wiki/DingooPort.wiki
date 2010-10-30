@@ -4,6 +4,15 @@
 
 This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Dingoo], a MIPS based device. The A320 has a "native" OS µC/OS-II (uCOS II) and users can install Dingux, a Linux port. This port is known to work for the native OS and should work for [http://code.google.com/p/dingoo-linux/ Dingux] ([http://www.dingux.com/ also see]) too.
 
+This is not a user friendly port for users because:
+  # it is not as fast as Joyryder's port (missing is memcpy and profiling enhancements)
+  # sounds it not yet very good (possibly related to speed above)
+  # no menu
+  # no show FPS indicator
+
+However this port does not impact the core gnuboy code so the Windows and regular Linux builds still work. I.e. they all share code. Also this version has core code that is slightly ahead of the current (as of Oct 2010) Dingoo ports as the other Dingoo ports are based on 1.0.3, this port uses the latest code and so has better game compatibilty, e.g. "Magical Drop". For more information see http://code.google.com/p/gnuboy/source/diff?spec=svn21&r=21&format=side&path=/trunk/docs/WHATSNEW
+
+If you are not a coder you will not want this version just yet.
 
 = Details =
 
