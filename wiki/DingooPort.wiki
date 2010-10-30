@@ -6,9 +6,12 @@ This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Ding
 
 This is not a user friendly port for users because:
   # it is not as fast as Joyryder's port (missing is memcpy and profiling enhancements)
-  # sounds it not yet very good (possibly related to speed above)
+  # sound it not yet very good (possibly related to speed above)
   # no menu
   # no show FPS indicator
+  # source file.rc doesn't work yet
+  # screen scaling is untested.
+  # background images is untested (related to file.rc).
 
 However this port does not impact the core gnuboy code so the Windows and regular Linux builds still work. I.e. they all share code. Also this version has core code that is slightly ahead of the current (as of Oct 2010) Dingoo ports as the other Dingoo ports are based on 1.0.3, this port uses the latest code and so has better game compatibilty, e.g. "Magical Drop". For more information see http://code.google.com/p/gnuboy/source/diff?spec=svn21&r=21&format=side&path=/trunk/docs/WHATSNEW
 
@@ -34,6 +37,6 @@ Key mapping:
 || Right shoulder  ||    Quit ||
 || POWER UP button ||    Not Mapped ||
 
-You can remap the keys by creating a gnuboy.rc, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details.
+In theory keys can be remapped by creating a gnuboy.rc but currently this is not working/implemented, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details on how config files work.
 
 NOTE if X is mapped, pressing and holding X for 3 seconds will also quit gnuboy.
