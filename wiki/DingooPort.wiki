@@ -8,7 +8,7 @@ This is not a user friendly port for end users because:
   # it is not as fast as Joyrider's port (missing his memcpy and profiling enhancements)
   # sound it not yet very good (possibly related to speed above). gnuboy/rc file can be populated with "set samplerate 8000" to improve slightly but effects are marginal.
   # sound can not be disabled, i.e. "set sound 0" causes gnuboy to hang/freeze as does "set samplerate 0", "set samplerate 1"
-  # like the Joyrider version *.rtc files are not portable and should not be copied to machines with different CPU types.
+  # like the Joyrider version `*`.rtc files are not portable and should not be copied to machines with different CPU types.
   # no menu
   # no show FPS indicator
   # screen scaling is untested (small window is known to work)
