@@ -1,0 +1,43 @@
+CCC = mipsel-linux-g++
+CC = mipsel-linux-gcc
+
+AS = $(CC)
+LD = $(CC)
+
+OPTIMISE   = -O3 -ffast-math -fstrict-aliasing -fomit-frame-pointer -ftree-vectorize -funroll-all-loops -fpeel-loops -ftracer -funswitch-loops -finline-functions -G 0 -march=mips32 -mtune=r4600 -mno-mips16 -msoft-float
+#-fprofile-generate
+#-fprofile-use
+
+DEFAULT_CFLAGS = -Wall $(shell /opt/mipsel-linux-uclibc/usr/bin/sdl-config --cflags) -I/opt/mipsel-linux-uclibc/usr/include -I/opt/mipsel-linux-uclibc/usr/include/SDL
+DEFAULT_LDFLAGS = -L/opt/mipsel-linux-uclibc/usr/mipsel-linux/lib $(shell /opt/mipsel-linux-uclibc/usr/bin/sdl-config --libs)
+
+SYS_DEFS = -DIS_LITTLE_ENDIAN  -DIS_LINUX
+
+CC_OPTS = -DGNUBOY_USE_BINARY_RTC_FILES -DGNUBOY_DISABLE_DEBUG_DISASSEMBLE
+# -DGNUBOY_USE_SDL_TIMERS
+
+CFLAGS = $(DEFAULT_CFLAGS) $(SYS_DEFS) $(OPTIMISE) $(CC_OPTS)
+#-DUSE_SDL_AUDIO
+LDFLAGS = $(DEFAULT_LDFLAGS) -s -lz -lSDL -lpthread
+# -lgcov
+
+ASM_OBJS =
+#SND_OBJS = sys/dummy/nosound.o
+
+SYS_OBJS = $(ASM_OBJS) $(SND_OBJS) sys/nix/nix.o
+SYS_INCS = -I./sys/nix
+
+SDL_OBJS = sys/sdl/sdl.o sys/sdl/keymap.o # sys/sdl/scale2x/scale2x.o sys/sdl/scale2x/scale3x.o sys/sdl/scale2x/scalebit.o 
+SDL_LIBS = 
+
+TARGET = gnuboy_dingux.dge
+
+all: $(TARGET)
+
+include Rules
+
+$(TARGET): $(OBJS) $(SYS_OBJS) $(SDL_OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) $(SYS_OBJS) $(SDL_OBJS) -o $@ $(SDL_LIBS)
+
+clean:
+	rm -f $(TARGET) *.o sys/*.o sys/*/*.o sys/*/*/*.o asm/*/*.o
