@@ -1,0 +1,30 @@
+#summary Information on the native SDL Dingoo A320 port
+
+= Introduction =
+
+This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Dingoo], a MIPS based device. The A320 has a "native" OS µC/OS-II (uCOS II) and users can install Dingux, a Linux port. This port is known to work for the native OS and should work for [http://code.google.com/p/dingoo-linux/ Dingux] ([http://www.dingux.com/ also see]) too.
+
+
+= Details =
+
+At the moment the port is a .APP, and hard coded to run "adjustris.gb" (available from http://www.pdroms.de/files/910/) in the same directory that the binary is found. NOTE the rom doesn't need to be Adjustris it just needs to have that filename. Also if a rom is passed in as an argument that will be used as the rom name instead.
+
+Key mapping:
+
+|| D-pad up        ||    UP ||
+|| D-pad down      ||    DOWN ||
+|| D-pad left      ||    LEFT ||
+|| D-pad right     ||    RIGHT ||
+|| A button        ||    A button ||
+|| B button        ||    B button ||
+|| START button    ||    START ||
+|| SELECT button   ||    SELECT ||
+|| X button        ||    Quit ||
+|| Y button        ||    Quit ||
+|| Left shoulder   ||    Quit ||
+|| Right shoulder  ||    Quit ||
+|| POWER UP button ||    Not Mapped ||
+
+You can remap the keys by creating a gnuboy.rc, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details.
+
+NOTE if X is mapped, pressing and holding X for 3 seconds will also quit gnuboy.
