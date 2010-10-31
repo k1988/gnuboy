@@ -1,3 +1,4 @@
+#include "gnuboy.h"
 
 /* Slightly modified from its original form so as not to exit the
  * program on errors. The resulting file remains in the public
