@@ -105,9 +105,7 @@ static byte *loadfile(FILE *f, int *len)
 {
 	int l = 0, c = 0;
 	byte *d = NULL;
-#define SLOW_AND_SAFE_LOADER
-#undef SLOW_AND_SAFE_LOADER
-#ifdef SLOW_AND_SAFE_LOADER
+#ifdef GNUBOY_ENABLE_ORIGINAL_SLOW_INCREMENTAL_LOADER
 	int p = 0;
 	byte buf[512];
 
@@ -132,13 +130,11 @@ static byte *loadfile(FILE *f, int *len)
 		c = fread((void *) d, (size_t) l, 1, f);
 		if (c != 1)
 		{
-			free(d);
-			d = NULL;
 			l = 0;
 			/* NOTE if this fails caller doesn't catch it (ditto the slow and "safe" version) */
 		}
 	}
-#endif /* SLOW_AND_SAFE_LOADER */
+#endif /* GNUBOY_ENABLE_ORIGINAL_SLOW_INCREMENTAL_LOADER */
 	*len = l;
 	return d;
 }
@@ -407,12 +403,4 @@ rcvar_t loader_exports[] =
 	RCV_INT("memrand", &memrand),
 	RCV_END
 };
-
-
-
-
-
-
-
-
 
