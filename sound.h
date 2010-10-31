@@ -1,5 +1,3 @@
-
-
 #ifndef __SOUND_H__
 #define __SOUND_H__
 
@@ -26,11 +24,7 @@ struct snd
 
 extern struct snd snd;
 
-
-
-
-
+void sound_write(byte r, byte b);
+byte sound_read(byte r);
 
 #endif
-
-

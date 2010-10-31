@@ -1,8 +1,7 @@
-
-
 #ifndef __RTC_H__
 #define __RTC_H__
 
+#include "defs.h"
 
 struct rtc
 {
@@ -16,8 +15,8 @@ struct rtc
 
 extern struct rtc rtc;
 
-
-
+void rtc_latch(byte b);
+void rtc_write(byte b);
 
 #endif
 
