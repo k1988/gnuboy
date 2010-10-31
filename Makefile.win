@@ -10,6 +10,7 @@ AS = $(CC)
 LD = $(CC)
 
 CFLAGS = -O3 -I./asm/i386 -Dmain=SDL_main
+CFLAGS += -Wall -Wextra 
 LDFLAGS = -s -lmingw32 -lSDLmain -lSDL
 ASFLAGS = -x assembler-with-cpp
 
