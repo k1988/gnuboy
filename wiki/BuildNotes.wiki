@@ -4,7 +4,7 @@ GCC is known to work on a number on platforms.
 
 = Windows =
 
-Known to build/run with gcc and SDL (1.2).
+Known to build/run with gcc (3.4.2) and SDL (1.2).
 
 {{{
 make -B -f Makfile.win
@@ -16,6 +16,16 @@ make -B -f Makfile.win
 ./configure --with-sdl
 make
 }}}
+
+
+= Dingoo Native SDL =
+
+gcc 4.1.2
+{{{
+make -B -f Makefile.dingoo
+}}}
+
+
 
 = Running =
 
