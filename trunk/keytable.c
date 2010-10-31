@@ -7,7 +7,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
+#include <ctype.h>
 
+#include "gnuboy.h"
 #include "input.h"
 
 /* keytable - Mapping of key names to codes, and back. A single code
@@ -148,10 +150,4 @@ char *k_keyname(int code)
 			return key->name;
 	return NULL;
 }
-
-
-
-
-
-
 
