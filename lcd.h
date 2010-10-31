@@ -54,6 +54,8 @@ void vram_write(int a, byte b);
 void pal_dirty();
 void vram_dirty();
 void lcd_reset();
+void bg_scan_color();
+void updatepatpix();
 
 /* lcdc.c */
 void lcdc_trans();
