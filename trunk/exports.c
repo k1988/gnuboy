@@ -1,7 +1,7 @@
-
-
 #include <stdlib.h>
+#include <stdio.h>
 
+#include "gnuboy.h"
 #include "rc.h"
 
 extern rcvar_t rcfile_exports[], emu_exports[], loader_exports[],

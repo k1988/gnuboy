@@ -1,21 +1,13 @@
-
-
-
 #include <stdlib.h>
 #include <string.h>
 
-char *strdup();
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "rc.h"
 #include "input.h"
 
 
-
-
 char *keybind[MAX_KEYS];
-
-
 
 
 int rc_bindkey(char *keyname, char *cmd)
@@ -80,7 +72,3 @@ void rc_dokey(int key, int st)
 		keybind[key][0] = '+';
 	}
 }
-
-
-
-
