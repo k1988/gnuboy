@@ -9,6 +9,8 @@
 #include <stdarg.h>
 #include <signal.h>
 
+#include "gnuboy.h"
+#include "loader.h"
 #include "input.h"
 #include "rc.h"
 
@@ -110,16 +112,6 @@ static void catch_signals()
 }
 
 
-
-static char *base(char *s)
-{
-	char *p;
-	p = strrchr(s, '/');
-	if (p) return p+1;
-	return s;
-}
-
-
 int main(int argc, char *argv[])
 {
 	int i;
@@ -132,7 +124,7 @@ int main(int argc, char *argv[])
 		else if (!strcmp(argv[i], "--source")) i++;
 		else if (!strcmp(argv[i], "--showvars"))
 		{
-			show_exports();
+			show_exports(); /* FIXME from exports.c but no prototype (header) */
 			exit(0);
 		}
 		else if (argv[i][0] == '-' && argv[i][1] == '-');
@@ -148,14 +140,15 @@ int main(int argc, char *argv[])
 	** TODO 1 - make a .SIM instead of a .APP
 	** TODO 2 - add a ROM loading menu item
 	*/
-	if (argc = 1) rom = "Adjustris.GB"; 
-	
+	if (argc == 1) rom = "Adjustris.GB"; 
+	/*
 	if (!rom) usage(base(argv[0]));
-
+	*/
+    
 	/* If we have special perms, drop them ASAP! */
 	vid_preinit();
 
-	init_exports();
+	init_exports(); /* FIXME from exports.c but no prototype (header) */
 
 	s = strdup(argv[0]);
 	sys_sanitize(s);
@@ -166,7 +159,8 @@ int main(int argc, char *argv[])
 
 	cmd = malloc(strlen(rom) + 11);
 	sprintf(cmd, "source %s", rom);
-	s = strchr(cmd, '.');
+/* DEBUG extern const char *strchr(const char *inStr, int inChar); */
+	s = (char *) strchr(cmd, '.');
 	if (s) *s = 0;
 	strcat(cmd, ".rc");
 	rc_command(cmd);
@@ -193,7 +187,7 @@ int main(int argc, char *argv[])
 		else if (!strncmp(argv[i], "--no-", 5))
 		{
 			opt = strdup(argv[i]+5);
-			while ((s = strchr(opt, '-'))) *s = '_';
+			while ((s = (char *) strchr(opt, '-'))) *s = '_';
 			cmd = malloc(strlen(opt) + 7);
 			sprintf(cmd, "set %s 0", opt);
 			rc_command(cmd);
@@ -203,14 +197,14 @@ int main(int argc, char *argv[])
 		else if (argv[i][0] == '-' && argv[i][1] == '-')
 		{
 			opt = strdup(argv[i]+2);
-			if ((s = strchr(opt, '=')))
+			if ((s = (char *) strchr(opt, '=')))
 			{
 				*s = 0;
 				arg = s+1;
 			}
 			else arg = "1";
-			while ((s = strchr(opt, '-'))) *s = '_';
-			while ((s = strchr(arg, ','))) *s = ' ';
+			while ((s = (char *) strchr(opt, '-'))) *s = '_';
+			while ((s = (char *) strchr(arg, ','))) *s = ' ';
 			
 			cmd = malloc(strlen(opt) + strlen(arg) + 6);
 			sprintf(cmd, "set %s %s", opt, arg);
@@ -219,8 +213,6 @@ int main(int argc, char *argv[])
 			free(cmd);
 			free(opt);
 		}
-		/* short options not yet implemented */
-		else if (argv[i][0] == '-' && argv[i][1]);
 	}
 
 	/* FIXME - make interface modules responsible for atexit() */

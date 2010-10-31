@@ -15,6 +15,7 @@
 #include <SDL/SDL.h>
 
 
+#include "gnuboy.h"
 #include "fb.h"
 #include "input.h"
 #include "rc.h"
@@ -454,6 +455,8 @@ rcvar_t pcm_exports[] =
 
 static void audio_callback(void *blah, byte *stream, int len)
 {
+	(void) blah; /* avoid warning about unused parameter */
+
 	memcpy(stream, pcm.buf, len);
 	audio_done = 1;
 }

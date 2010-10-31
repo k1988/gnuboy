@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "rc.h"
+
 
 void sys_sanitize(char *s)
 {
@@ -22,7 +24,7 @@ void sys_initpath(char *exe)
 
 	home = strdup(exe);
 	sys_sanitize(home);
-	p = strrchr(home, '/');
+	p = (char *) strrchr(home, '/');
 	if (p) *p = 0;
 	else
 	{
@@ -41,6 +43,8 @@ void sys_initpath(char *exe)
 
 void sys_checkdir(char *path, int wr)
 {
+    (void) path; /* avoid warning about unused parameter */
+    (void) wr; /* avoid warning about unused parameter */
 }
 
 
