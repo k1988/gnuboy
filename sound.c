@@ -11,7 +11,7 @@
 #include "noise.h"
 
 
-const static byte dmgwave[16] =
+static const byte dmgwave[16] =
 {
 	0xac, 0xdd, 0xda, 0x48,
 	0x36, 0x02, 0xcf, 0x16,
@@ -19,7 +19,7 @@ const static byte dmgwave[16] =
 	0xac, 0xdd, 0xda, 0x48
 };
 
-const static byte cgbwave[16] =
+static const byte cgbwave[16] =
 {
 	0x00, 0xff, 0x00, 0xff,
 	0x00, 0xff, 0x00, 0xff,
@@ -27,7 +27,7 @@ const static byte cgbwave[16] =
 	0x00, 0xff, 0x00, 0xff,
 };
 
-const static byte sqwave[4][8] =
+static const byte sqwave[4][8] =
 {
 	{  0, 0,-1, 0, 0, 0, 0, 0 },
 	{  0,-1,-1, 0, 0, 0, 0, 0 },
@@ -35,7 +35,7 @@ const static byte sqwave[4][8] =
 	{ -1, 0, 0,-1,-1,-1,-1,-1 }
 };
 
-const static int freqtab[8] =
+static const int freqtab[8] =
 {
 	(1<<14)*2,
 	(1<<14),
