@@ -159,7 +159,7 @@ static void inflate_callback(byte b)
 
 static byte *decompress(byte *data, int *len)
 {
-	unsigned long pos = 0;
+	long pos = 0;
 	if (data[0] != 0x1f || data[1] != 0x8b)
 		return data;
 	inf_buf = 0;
@@ -332,7 +332,7 @@ void loader_unload()
 static char *base(char *s)
 {
 	char *p;
-	p = strrchr(s, '/');
+	p = (char *) strrchr(s, '/');
 	if (p) return p+1;
 	return s;
 }
@@ -372,7 +372,7 @@ void loader_init(char *s)
 	else if (romfile && *base(romfile) && strcmp(romfile, "-"))
 	{
 		name = strdup(base(romfile));
-		p = strchr(name, '.');
+		p = (char *) strchr(name, '.');
 		if (p) *p = 0;
 	}
 	else name = ldup(rom.name);

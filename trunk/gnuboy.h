@@ -25,25 +25,31 @@ void sys_initpath(char *exe);
 void doevents();
 void die(char *fmt, ...);
 
-/* FIXME bad place for these prototypes */
+/* FIXME this header files is a poor location for the following prototypes */
 /*------------------------------------------*/
-void emu_reset(); /* emu.c */
-void emu_run(); /* emu.c */
 
-void init_exports(); /* exports.c  */
-void show_exports(); /* exports.c  */
+/* emu.c */
+void emu_reset();
+void emu_run();
 
+ /* exports.c */
+void init_exports();
+void show_exports();
+
+/* hw.c */
 #include "defs.h" /* need byte for below */
-void hw_interrupt(byte i, byte mask); /* hw.c */
+void hw_interrupt(byte i, byte mask);
 
-void pal_set332(); /* palette.c */
-void pal_expire(); /* palette.c */
-void pal_release(byte n); /* palette.c */
-byte pal_getcolor(int c, int r, int g, int b); /* palette.c */
+/* palette.c */
+void pal_set332();
+void pal_expire();
+void pal_release(byte n);
+byte pal_getcolor(int c, int r, int g, int b);
 
+/* save.c */
 #include <stdio.h> /* need FILE for below */
-void savestate(FILE *f); /* save.c */
-void loadstate(FILE *f); /* save.c */
+void savestate(FILE *f);
+void loadstate(FILE *f);
 
 int unzip (const unsigned char *data, long *p, void (* callback) (unsigned char d)); /* inflate.c */
 
@@ -61,6 +67,9 @@ void refresh_3_4x(byte *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_2x(un32 *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_3x(un32 *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_4x(un32 *dest, byte *src, un32 *pal, int cnt);
+
+/* debug.c */
+void debug_disassemble(addr a, int c);
 
 /*------------------------------------------*/
 

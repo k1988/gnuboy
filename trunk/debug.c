@@ -1,12 +1,13 @@
-
-
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "gnuboy.h"
 #include "defs.h"
 #include "cpu.h"
 #include "mem.h"
+#ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
 #include "fastmem.h"
+#endif /* GNUBOY_DISABLE_DEBUG_DISASSEMBLE */
 #include "regs.h"
 #include "rc.h"
 
@@ -566,7 +567,10 @@ rcvar_t debug_exports[] =
 
 void debug_disassemble(addr a, int c)
 {
-#ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
+#ifdef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
+	(void) a; /* avoid warning about unused parameter */
+	(void) c; /* avoid warning about unused parameter */
+#else /* i.e. ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE */
 	static int i, j, k;
 	static byte code;
 	static byte ops[3];
