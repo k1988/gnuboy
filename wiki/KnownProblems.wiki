@@ -2,7 +2,7 @@
 
 = Known problems =
 
-  * Glitch in intro/cut scene for GBC games The Legend of Zelda - Oracle of Seasons and also The Legend of Zelda - Oracle of Ages. Bars at top of screen should be black. [http://sourceforge.net/projects/gambatte/ Gambatte] does not have this problem
+  * Glitch in intro/cut scene for GBC games The Legend of Zelda - Oracle of Seasons and also The Legend of Zelda - Oracle of Ages. Bars at top and the bottom of the screen should be black (top bar is correctly shown). [http://sourceforge.net/projects/gambatte/ Gambatte] does not have this problem
 
 = To Do =
 
