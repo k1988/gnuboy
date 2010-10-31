@@ -56,7 +56,17 @@ int *rc_getvec(char *name);
 char *rc_getstr(char *name);
 
 void rc_dokey(int key, int st);
-int rc_command(char *line); /* rccmds.c */
+
+/* rccmds.c */
+int rc_command(char *line);
+
+/* rcfile.c */
+int rc_sourcefile(char *filename);
+
+/* rckeys.c */
+int rc_bindkey(char *keyname, char *cmd);
+int rc_unbindkey(char *keyname);
+void rc_unbindall();
 
 #endif
 

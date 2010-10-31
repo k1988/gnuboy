@@ -34,7 +34,8 @@ extern struct hw hw;
 void hw_hdma();
 void hw_dma(byte b);
 void hw_hdma_cmd(byte c);
-void pad_refresh();
 void hw_reset();
+void pad_set(byte k, int st);
+void pad_refresh();
 
 #endif

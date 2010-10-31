@@ -46,6 +46,8 @@ void savestate(FILE *f); /* save.c */
 void loadstate(FILE *f); /* save.c */
 
 int unzip (const unsigned char *data, long *p, void (* callback) (unsigned char d)); /* inflate.c */
+
+int splitline(char **argv, int max, char *line); /* split.c */
 /*------------------------------------------*/
 
 #endif /* __GNUBOY_H__ */
