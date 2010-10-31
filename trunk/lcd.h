@@ -51,6 +51,8 @@ void lcd_refreshline();
 void pal_write(int i, byte b);
 void pal_write_dmg(int i, int mapnum, byte d);
 void vram_write(int a, byte b);
+void pal_dirty();
+void vram_dirty();
 
 /* lcdc.c */
 void lcdc_trans();

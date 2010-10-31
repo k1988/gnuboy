@@ -1,15 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <ctype.h>
 
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "regs.h"
 #include "mem.h"
 #include "hw.h"
+#include "lcd.h"
 #include "rtc.h"
 #include "rc.h"
+#include "sound.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 char *strdup();
 
