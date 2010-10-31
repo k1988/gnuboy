@@ -1,6 +1,3 @@
-
-
-
 #ifndef __HW_H__
 #define __HW_H__
 
@@ -34,7 +31,6 @@ struct hw
 
 extern struct hw hw;
 
+void hw_hdma();
 
 #endif
-
-

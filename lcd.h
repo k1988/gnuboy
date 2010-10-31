@@ -1,5 +1,3 @@
-
-
 #ifndef __LCD_H__
 #define __LCD_H__
 
@@ -48,10 +46,9 @@ extern struct lcd lcd;
 extern struct scan scan;
 
 
-
+void lcd_begin();
+void lcd_refreshline();
+void lcdc_trans();
 
 
 #endif
-
-
-
