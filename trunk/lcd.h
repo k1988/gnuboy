@@ -53,6 +53,7 @@ void pal_write_dmg(int i, int mapnum, byte d);
 void vram_write(int a, byte b);
 void pal_dirty();
 void vram_dirty();
+void lcd_reset();
 
 /* lcdc.c */
 void lcdc_trans();

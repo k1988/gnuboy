@@ -1,12 +1,12 @@
-
-
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "regs.h"
 #include "hw.h"
 #include "cpu.h"
+#include "sound.h"
 #include "mem.h"
 #include "lcd.h"
+#include "rtc.h"
 #include "rc.h"
 
 
@@ -61,8 +61,6 @@ void emu_step()
 /* This mess needs to be moved to another module; it's just here to
  * make things work in the mean time. */
 
-void *sys_timer();
-
 void emu_run()
 {
 	void *timer = sys_timer();
@@ -96,15 +94,3 @@ void emu_run()
 			emu_step();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-

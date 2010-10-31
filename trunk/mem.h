@@ -1,4 +1,3 @@
-
 #ifndef __MEM_H__
 #define __MEM_H__
 
@@ -49,15 +48,12 @@ extern struct rom rom;
 extern struct ram ram;
 
 
-
-
-
 void mem_updatemap();
 void ioreg_write(byte r, byte b);
 void mbc_write(int a, byte b);
 void mem_write(int a, byte b);
 byte mem_read(int a);
-
+void mbc_reset();
 
 
 #define READB(a) ( mbc.rmap[(a)>>12] \
@@ -71,9 +67,4 @@ byte mem_read(int a);
 #define WRITEW(a, w) ( WRITEB((a), (w)&0xFF), WRITEB((a)+1, (w)>>8) )
 
 
-
-
 #endif
-
-
-
