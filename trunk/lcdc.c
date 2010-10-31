@@ -1,11 +1,11 @@
-
-
 #include <stdlib.h>
 
+#include "gnuboy.h"
 #include "defs.h"
 #include "hw.h"
 #include "cpu.h"
 #include "regs.h"
+#include "lcd.h"
 
 
 #define C (cpu.lcdc)
@@ -170,10 +170,4 @@ void lcdc_trans()
 		}
 	}
 }
-
-
-
-
-
-
 

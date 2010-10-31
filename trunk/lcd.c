@@ -1,6 +1,6 @@
+#include <string.h>
 
-
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "regs.h"
 #include "hw.h"
@@ -850,19 +850,3 @@ void lcd_reset()
 	vram_dirty();
 	pal_dirty();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

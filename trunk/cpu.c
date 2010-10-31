@@ -1,10 +1,9 @@
 
-
-
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "regs.h"
 #include "hw.h"
+#include "lcd.h"
 #include "cpu.h"
 #include "mem.h"
 #include "fastmem.h"
@@ -864,15 +863,4 @@ int cpu_step(int max)
 }
 
 #endif /* ASM_CPU_STEP */
-
-
-
-
-
-
-
-
-
-
-
 
