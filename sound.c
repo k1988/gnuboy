@@ -1,6 +1,6 @@
+#include <string.h>
 
-
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "pcm.h"
 #include "sound.h"
@@ -458,7 +458,3 @@ void sound_write(byte r, byte b)
 		return;
 	}
 }
-
-
-
-

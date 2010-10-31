@@ -10,6 +10,7 @@ void vid_setpal(int i, int r, int g, int b);
 
 /* Sound */
 void pcm_init();
+int pcm_submit();
 
 void sys_sanitize(char *s);
 void sys_initpath(char *exe);
