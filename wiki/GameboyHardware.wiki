@@ -1,6 +1,8 @@
 #summary Hardware information and links
 
 = Links =
-  * http://verhoeven272.nl/fruttenboel/Gameboy/pandocs.html.gz
-  * http://verhoeven272.nl/cgi-bin/FSgz?fruttenboel%2FGameboy&Fruttenboel+Gameboy+section&GBtop&GBspec&GBcontent
-
+  * [http://verhoeven272.nl/fruttenboel/Gameboy/pandocs.html.gz Dr Pan Everything You Always Wanted To Know About GAMEBOY]
+  * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBspec.html.gz Dr Pan GBspec]
+  * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBsummary.html Dr Pan GB extra Z80 instructions]
+  * [http://www.devrs.com/gb/ developing for the GB]
+  * [http://gbdk.sourceforge.net/ GameBoy Developers Kit (GBDK)]
