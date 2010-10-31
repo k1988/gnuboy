@@ -1,26 +1,15 @@
-
-
-
-
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
-char *strdup();
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "rc.h"
-
-
-
-
 
 
 static rcvar_t *rcvars;
 
 static int nvars;
-
-
-
 
 
 void rc_export(rcvar_t *v)
@@ -225,11 +214,4 @@ char *rc_getstr(char *name)
 {
 	return rc_getstr_n(rc_findvar(name));
 }
-
-
-
-
-
-
-
 
