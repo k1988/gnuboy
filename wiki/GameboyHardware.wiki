@@ -1,5 +1,6 @@
-#summary Hardware information and link
+#summary Hardware information and links
 
 = Links =
-
+  * http://verhoeven272.nl/fruttenboel/Gameboy/pandocs.html.gz
   * http://verhoeven272.nl/cgi-bin/FSgz?fruttenboel%2FGameboy&Fruttenboel+Gameboy+section&GBtop&GBspec&GBcontent
+
