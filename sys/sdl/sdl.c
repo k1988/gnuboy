@@ -430,6 +430,7 @@ void vid_end()
 
 
 
+#ifndef GNUBOY_DISABLE_SDL_SOUND
 
 #include "pcm.h"
 
@@ -502,6 +503,7 @@ void pcm_close()
 {
 	if (sound) SDL_CloseAudio();
 }
+#endif /* GNUBOY_DISABLE_SDL_SOUND */
 
 
 #ifdef GNUBOY_USE_SDL_TIMERS
