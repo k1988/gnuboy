@@ -51,9 +51,11 @@ byte pal_getcolor(int c, int r, int g, int b);
 void savestate(FILE *f);
 void loadstate(FILE *f);
 
-int unzip (const unsigned char *data, long *p, void (* callback) (unsigned char d)); /* inflate.c */
+/* inflate.c */
+int unzip (const unsigned char *data, long *p, void (* callback) (unsigned char d));
 
-int splitline(char **argv, int max, char *line); /* split.c */
+/* split.c */
+int splitline(char **argv, int max, char *line);
 
 /* refresh.c */
 void refresh_1(byte *dest, byte *src, byte *pal, int cnt);
