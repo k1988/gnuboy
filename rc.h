@@ -55,6 +55,8 @@ int rc_getint(char *name);
 int *rc_getvec(char *name);
 char *rc_getstr(char *name);
 
+void rc_dokey(int key, int st);
+int rc_command(char *line); /* rccmds.c */
 
 #endif
 
