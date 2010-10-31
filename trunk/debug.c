@@ -5,14 +5,12 @@
 #include "defs.h"
 #include "cpu.h"
 #include "mem.h"
-#ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
-#include "fastmem.h"
-#endif /* GNUBOY_DISABLE_DEBUG_DISASSEMBLE */
 #include "regs.h"
 #include "rc.h"
 
 #include "cpuregs.h"
-
+#ifndef GNUBOY_DISABLE_DEBUG_DISASSEMBLE
+#include "fastmem.h"
 
 static char *mnemonic_table[256] =
 {
@@ -554,6 +552,7 @@ static byte operand_count[256] =
 	2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 3, 1, 1, 1, 2, 1
 };
 
+#endif /* GNUBOY_DISABLE_DEBUG_DISASSEMBLE */
 
 /* replace with a real interactive debugger eventually... */
 
