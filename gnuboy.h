@@ -7,11 +7,13 @@ void pcm_close();
 void vid_preinit();
 void vid_init();
 void vid_setpal(int i, int r, int g, int b);
+void vid_settitle(char *title);
 
 /* Sound */
 void pcm_init();
 int pcm_submit();
 
+void sys_checkdir(char *path, int wr);
 void sys_sanitize(char *s);
 void sys_initpath(char *exe);
 void die(char *fmt, ...);
@@ -31,6 +33,12 @@ void pal_set332(); /* palette.c */
 void pal_expire(); /* palette.c */
 void pal_release(byte n); /* palette.c */
 byte pal_getcolor(int c, int r, int g, int b); /* palette.c */
+
+#include <stdio.h> /* need FILE for below */
+void savestate(FILE *f); /* save.c */
+void loadstate(FILE *f); /* save.c */
+
+int unzip (const unsigned char *data, long *p, void (* callback) (unsigned char d)); /* inflate.c */
 /*------------------------------------------*/
 
 #endif /* __GNUBOY_H__ */

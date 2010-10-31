@@ -1,7 +1,7 @@
-
-
 #include <stdio.h>
+#include <string.h>
 
+#include "gnuboy.h"
 #include "defs.h"
 #include "cpu.h"
 #include "cpuregs.h"
@@ -265,22 +265,4 @@ void savestate(FILE *f)
 	fseek(f, sramblock<<12, SEEK_SET);
 	fwrite(ram.sbank, 4096, srl, f);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

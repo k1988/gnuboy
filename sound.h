@@ -26,5 +26,6 @@ extern struct snd snd;
 
 void sound_write(byte r, byte b);
 byte sound_read(byte r);
+void sound_dirty();
 
 #endif
