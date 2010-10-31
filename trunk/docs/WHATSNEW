@@ -8,6 +8,11 @@
 
 
 
+RELEASE 1.0.5
+
+Internal code changes to make ports to other platforms easier. For example,
+there the Dingoo (A320) port is now part of gnuboy.
+
 RELEASE 1.0.4
 
 Fixed a possible out-of-bounds access which could allow a hacked savestate to
