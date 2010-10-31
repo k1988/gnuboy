@@ -1,5 +1,3 @@
-
-
 #ifndef __CPU_H__
 #define __CPU_H__
 
@@ -29,8 +27,6 @@ struct cpu
 extern struct cpu cpu;
 
 
-
+void cpu_timers(int cnt);
 
 #endif
-
-
