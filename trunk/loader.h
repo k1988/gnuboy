@@ -1,5 +1,3 @@
-
-
 #ifndef __LOADER_H__
 #define __LOADER_H__
 
@@ -20,9 +18,9 @@ void loader_init(char *s);
 int rom_load();
 int sram_load();
 int sram_save();
+void state_load(int n);
+void state_save(int n);
 
 
 
 #endif
-
-
