@@ -18,6 +18,9 @@ Also see OtherEmulators
      * http://crankgaming.blogspot.com/2010/06/gnuboy4d-for-dingux-v10-released.html
      * http://boards.dingoonity.org/dingux-releases/gnuboy4d-%28for-dingux%29-v1-0/msg20230/ 
      * http://sience.schattenkind.net/dingoo/SiENcE_downloads.htm
+  * Dingoo unknown
+     * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,46,144
+     * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,46,72
   * Windows CE/Pocket PC/Windows Mobile/GAPI, WAC, http://gnuboyce.berlios.de/
   * Windows CE/Pocket PC/Windows Mobile/GAPI, Xetra, http://xetranet.free.fr/ipaq/gnuboy/
   * Zaurus/Qtopia, http://www.slac.com/~mpilone/projects/qtopiagnuboy.phtml
