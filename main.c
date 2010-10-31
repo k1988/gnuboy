@@ -1,21 +1,13 @@
-
-
-
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-char *strdup();
-
 #include <stdarg.h>
 #include <signal.h>
 
+#include "gnuboy.h"
 #include "input.h"
 #include "rc.h"
-
+#include "loader.h"
 
 #include "Version"
 
@@ -310,14 +302,4 @@ int main(int argc, char *argv[])
 	/* never reached */
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
 
