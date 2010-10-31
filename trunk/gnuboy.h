@@ -6,6 +6,7 @@ void vid_close();
 void pcm_close();
 void vid_preinit();
 void vid_init();
+void vid_setpal(int i, int r, int g, int b);
 
 /* Sound */
 void pcm_init();

@@ -48,7 +48,15 @@ extern struct scan scan;
 
 void lcd_begin();
 void lcd_refreshline();
+void pal_write(int i, byte b);
+void pal_write_dmg(int i, int mapnum, byte d);
+void vram_write(int a, byte b);
+
+/* lcdc.c */
 void lcdc_trans();
+void lcdc_change(byte b);
+void stat_write(byte b);
+void stat_trigger();
 
 
 #endif

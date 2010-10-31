@@ -1,13 +1,13 @@
-
-
 #include <stdlib.h>
 
+#include "gnuboy.h"
 #include "defs.h"
 #include "hw.h"
 #include "regs.h"
 #include "mem.h"
 #include "rtc.h"
 #include "lcd.h"
+#include "sound.h"
 
 struct mbc mbc;
 struct rom rom;
