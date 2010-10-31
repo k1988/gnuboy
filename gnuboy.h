@@ -6,8 +6,14 @@ void vid_close();
 void pcm_close();
 void vid_preinit();
 void vid_init();
+void vid_begin();
+void vid_end();
 void vid_setpal(int i, int r, int g, int b);
 void vid_settitle(char *title);
+
+void sys_sleep(int us);
+void *sys_timer();
+int sys_elapsed(void *in_ptr);
 
 /* Sound */
 void pcm_init();
@@ -16,6 +22,7 @@ int pcm_submit();
 void sys_checkdir(char *path, int wr);
 void sys_sanitize(char *s);
 void sys_initpath(char *exe);
+void doevents();
 void die(char *fmt, ...);
 
 /* FIXME bad place for these prototypes */

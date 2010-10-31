@@ -519,11 +519,13 @@ void *sys_timer()
 	return tv;
 }
 
-int sys_elapsed(Uint32 *cl)
+int sys_elapsed(void *in_ptr)
 {
+	Uint32 *cl;
 	Uint32 now;
 	Uint32 usecs;
 
+	cl = (Uint32 *) in_ptr;
 	now = SDL_GetTicks() * 1000;
 	usecs = now - *cl;
 	*cl = now;
