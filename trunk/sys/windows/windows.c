@@ -8,7 +8,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-/*char *strdup();   this bothers me, this should be picked up from string.h */
+
+#include "rc.h"
 
 /*
 ** Timer functions should be picked up from sdl.c (via GNUBOY_USE_SDL_TIMERS)
@@ -49,5 +50,7 @@ void sys_initpath(char *exe)
 
 void sys_checkdir(char *path, int wr)
 {
+	(void) path; /* avoid warning about unused parameter */
+	(void) wr; /* avoid warning about unused parameter */
 }
 
