@@ -1,6 +1,6 @@
+#include <string.h>
 
-
-
+#include "gnuboy.h"
 #include "defs.h"
 #include "cpu.h"
 #include "hw.h"
@@ -183,10 +183,3 @@ void hw_reset()
 	R_HDMA5 = 0xFF;
 	R_VBK = 0xFE;
 }
-
-
-
-
-
-
-
