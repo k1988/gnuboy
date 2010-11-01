@@ -14,6 +14,8 @@
 
 #include <SDL/SDL.h>
 
+#include "SFont.h"
+#include "font8px.h"
 
 #include "gnuboy.h"
 #include "fb.h"
@@ -36,12 +38,31 @@ static SDL_Rect overlay_rect;
 
 static int vmode[3] = { 0, 0, 16 };
 
+/* fps */
+static int sdl_showfps = 0; 
+static int sdl_showfps_box = 0; 
+static int fps_current_count = 0; 
+static int fps_last_count = 0; 
+static int fps_last_time = 0; 
+static int fps_current_time = 0;
+static char fps_str[20] = {0};
+
+static SDL_Surface *font_bitmap_surface=NULL;
+static SFont_Font* Font=NULL;
+
+SDL_Rect myrect;
+/* fps */
+
+
 rcvar_t vid_exports[] =
 {
 	RCV_VECTOR("vmode", &vmode, 3),
 	RCV_BOOL("yuv", &use_yuv),
 	RCV_BOOL("fullscreen", &fullscreen),
 	RCV_BOOL("altenter", &use_altenter),
+    
+	RCV_BOOL("sdl_showfps", &sdl_showfps), /* SDL only, show frames per second */
+	RCV_BOOL("sdl_showfps_box", &sdl_showfps_box), /* SDL only, show FPS in a box */
 	RCV_END
 };
 
@@ -176,6 +197,20 @@ void vid_init()
 
 	if (!(screen = SDL_SetVideoMode(vmode[0], vmode[1], vmode[2], flags)))
 		die("SDL: can't set video mode: %s\n", SDL_GetError());
+    
+    /* fps */
+    font_bitmap_surface = get_default_data_font();
+    Font = SFont_InitFont(font_bitmap_surface);
+    if(!Font) {
+        fprintf(stderr, "An error occured while setting up font.");
+        exit(1);
+        /* FIXME die call here */
+    }
+    myrect.x = 0;
+    myrect.y = 0;
+    myrect.w = 320;
+    myrect.h = SFont_TextHeight(Font);
+    /* fps */
 
 	SDL_ShowCursor(0);
 
@@ -425,6 +460,27 @@ void vid_end()
 		return;
 	}
 	SDL_UnlockSurface(screen);
+    
+    if (sdl_showfps)
+    {
+        fps_current_time = SDL_GetTicks();
+        fps_current_count++;
+        snprintf(fps_str, 19, "%d FPS", fps_last_count);
+        if (sdl_showfps_box)
+        {
+            myrect.w = SFont_TextWidth(Font, fps_str);
+            SDL_FillRect(screen, &myrect, 0 );
+        }
+        SFont_Write(screen, Font, 0,0, fps_str);
+        if ( fps_current_time - fps_last_time >= 1000 )
+        {
+            /* reset fps count every second (not every frame) */
+            fps_last_count = fps_current_count;
+            fps_current_count = 0;
+            fps_last_time = fps_current_time;
+        }
+    }
+
 	if (fb.enabled) SDL_Flip(screen);
 }
 
