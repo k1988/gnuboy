@@ -4,6 +4,7 @@ Also see [Ports]
 
 = Open Source Emulators =
 
+  * [http://m.peponas.free.fr/gngb/ Gngb] C and SDL (SGB support is experimental)
   * Heig-Boy http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy (also the home of ColorIt library and MasterBoy for PSP), C (windows only?)
   * Gambatte http://sourceforge.net/projects/gambatte/ C++ and QT based (there is an SDL port in SVN
   * http://mednafen.sourceforge.net/ mix of C and C++ and SDL
