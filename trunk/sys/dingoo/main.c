@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 	** TODO 1 - make a .SIM instead of a .APP
 	** TODO 2 - add a ROM loading menu item
 	*/
-	if (argc == 1) rom = "Adjustris.GB"; 
+	if (argc == 1) rom = "Adjustris.GB.gz"; 
 	/*
 	if (!rom) usage(base(argv[0]));
 	*/
