@@ -6,7 +6,6 @@
 
 = To Do =
 
-  * Add frames per seconds (fps) counter/tracking/diagnostic. Needed to check performance improvement progress
   * Add frame skip (frameskip) option for slow machines.
   * Fix compile warnings
   * Add save screen shot support
