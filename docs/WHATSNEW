@@ -12,6 +12,9 @@ RELEASE 1.0.5
 
 Internal code changes to make ports to other platforms easier. For example,
 there the Dingoo (A320) port is now part of gnuboy.
+Added frames per second display (fps)for SDL ONLY. Enabled via new rc
+variables sdl_showfps=1 and also sdl_showfps_box. sdl_showfps_box=1 will
+display FPS in a box (for easier reading)
 
 RELEASE 1.0.4
 
