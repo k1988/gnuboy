@@ -19,6 +19,7 @@ SDL port can now be built without sound support, via define GNUBOY_DISABLE_SDL_S
 Windows build now logs all compile warnings.
 Fixed all compile warnings related to missing prototypes. This has now exposed warnings that are real/potential problems.
 Fixed all warnings related to type mismatch on stdlib string functions and "const".
+Added preliminary frames per second display for SDL ONLY. Enabled via sdl_showfps=1 and also sdl_showfps_box. sdl_showfps_box=1 will display FPS in a box (for easier reading). Makes use of SFont. Now included with SDL port.
 
 1.0.4 (2010-10-25)
 fixed a possible out-of-bounds access which could allow a hacked savestate to
