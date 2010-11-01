@@ -40,7 +40,6 @@ static int vmode[3] = { 0, 0, 16 };
 
 /* fps */
 static int sdl_showfps = 0; 
-static int sdl_showfps_box = 0; 
 static int fps_current_count = 0; 
 static int fps_last_count = 0; 
 static int fps_last_time = 0; 
@@ -61,8 +60,7 @@ rcvar_t vid_exports[] =
 	RCV_BOOL("fullscreen", &fullscreen),
 	RCV_BOOL("altenter", &use_altenter),
     
-	RCV_BOOL("sdl_showfps", &sdl_showfps), /* SDL only, show frames per second */
-	RCV_BOOL("sdl_showfps_box", &sdl_showfps_box), /* SDL only, show FPS in a box */
+	RCV_INT("sdl_showfps", &sdl_showfps), /* SDL only, show frames per second, if >1 will show FPS in a box */
 	RCV_END
 };
 
@@ -466,7 +464,7 @@ void vid_end()
         fps_current_time = SDL_GetTicks();
         fps_current_count++;
         snprintf(fps_str, 19, "%d FPS", fps_last_count);
-        if (sdl_showfps_box)
+        if (sdl_showfps > 1 )
         {
             myrect.w = SFont_TextWidth(Font, fps_str);
             SDL_FillRect(screen, &myrect, 0 );
