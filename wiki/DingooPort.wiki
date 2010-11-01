@@ -7,11 +7,11 @@ This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Ding
 This is not a user friendly port for end users because:
   # it is not as fast as Joyrider's port (missing his memcpy and profiling enhancements)
   # sound it not yet very good (possibly related to speed above). gnuboy/rc file can be populated with "set samplerate 8000" to improve slightly but effects are marginal.
-  # some games appear to be controlled too fast (e.g. Adjustris), maybe sound related?
+  # some games appear to be controlled too fast (e.g. Adjustris), maybe sound related? Adjustris runs at 100 FPS under Dingoo. Under a significantly faster win32 machine it is throttled to 60 fps. Need to add throttle for Dingoo port as timing is off (appears to be  too fast rather than too slow)
   # sound can not be disabled, i.e. "set sound 0" causes gnuboy to hang/freeze as does "set samplerate 0", "set samplerate 1"
   # like the Joyrider version `*`.rtc files are not portable and should not be copied to machines with different CPU types.
   # no menu
-  # no show FPS indicator
+  # FPS indicator is controlled via RC variable (not menu)
   # screen scaling is untested (small window is known to work)
   # background images are untested
 
