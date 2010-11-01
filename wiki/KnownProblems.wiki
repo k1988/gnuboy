@@ -10,6 +10,7 @@
   * Add frame skip (frameskip) option for slow machines.
   * Fix compile warnings
   * Add save screen shot support
+  * Add skins support, aka background images (for non-scaled view with a border)
   * Add built in colorscale mapping for GB games (rather than defaulting)
   * .zip (i.e.pkzip) file support? gzip support is already present (albeit a VERY slow implementation)
   * Find enhancements implemented in other ports and integrate into this release
