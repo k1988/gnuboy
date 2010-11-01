@@ -28,6 +28,7 @@ CC_OPTS   = -G0 -O3 $(INCLUDE) -mips32 -mno-abicalls -fno-pic $(W_OPTS) -D_DEBUG
 CC_OPTS   += -DNDEBUG=1  ## allow assert() calls to be removed, if left fails to build with Dingoo native
 CC_OPTS   += -DIS_LITTLE_ENDIAN
 CC_OPTS   += -DGNUBOY_USE_BINARY_RTC_FILES -DGNUBOY_DISABLE_DEBUG_DISASSEMBLE -DGNUBOY_USE_SDL_TIMERS
+CC_OPTS   += -DDINGOO_DIE_LOG_TO_FILE
 CC_OPTS_A = $(CC_OPTS) -D_ASSEMBLER_
 
 # Note disabling sound seems to freeze up Dingoo version (win32 is fine) :-(

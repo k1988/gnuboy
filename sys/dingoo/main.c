@@ -77,11 +77,25 @@ static void shutdown()
 void die(char *fmt, ...)
 {
 	va_list ap;
+#ifdef DINGOO_DIE_LOG_TO_FILE
 	char tmp_buf[1024];
+    int mesg_len=0;
+    FILE *fptr=NULL;
+#endif /* DINGOO_DIE_LOG_TO_FILE */
 
 	va_start(ap, fmt);
-	vsnprintf(tmp_buf, sizeof(tmp_buf)-1, fmt, ap);
+#ifdef DINGOO_DIE_LOG_TO_FILE
+    fptr = fopen("stderr.txt", "wb");
+    if (fptr != NULL)
+    {
+        mesg_len = vsnprintf(tmp_buf, sizeof(tmp_buf)-1, fmt, ap);
+        fwrite(tmp_buf, mesg_len, 1, fptr);
+        fclose(fptr);
+    }
+    /* else nothing we can do except maybe print to screen */
+#else
 	fprintf(stderr, fmt, ap); /* NOTE with Oct 2010 Dingoo native SDK this goes to the serial port */
+#endif /* DINGOO_DIE_LOG_TO_FILE */
 	va_end(ap);
 	exit(1);
 }
@@ -140,11 +154,9 @@ int main(int argc, char *argv[])
 	** TODO 1 - make a .SIM instead of a .APP
 	** TODO 2 - add a ROM loading menu item
 	*/
-	if (argc == 1) rom = "Adjustris.GB.gz"; 
-	/*
-	if (!rom) usage(base(argv[0]));
-	*/
-    
+    if (argc == 1) rom = "Adjustris.GB.gz"; 
+	if (!rom) die("missing ROM filename");
+
 	/* If we have special perms, drop them ASAP! */
 	vid_preinit();
 
@@ -159,7 +171,6 @@ int main(int argc, char *argv[])
 
 	cmd = malloc(strlen(rom) + 11);
 	sprintf(cmd, "source %s", rom);
-/* DEBUG extern const char *strchr(const char *inStr, int inChar); */
 	s = (char *) strchr(cmd, '.');
 	if (s) *s = 0;
 	strcat(cmd, ".rc");

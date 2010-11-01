@@ -199,10 +199,9 @@ void vid_init()
     /* fps */
     font_bitmap_surface = get_default_data_font();
     Font = SFont_InitFont(font_bitmap_surface);
-    if(!Font) {
-        fprintf(stderr, "An error occured while setting up font.");
-        exit(1);
-        /* FIXME die call here */
+    if(!Font)
+    {
+        die("An error occured while setting up font.");
     }
     myrect.x = 0;
     myrect.y = 0;
