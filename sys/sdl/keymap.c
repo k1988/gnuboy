@@ -31,6 +31,8 @@ int keymap[][2] = {
 	{ SDLK_INSERT, K_INS },
 	{ SDLK_HOME, K_HOME },
 	{ SDLK_END, K_END },
+	{ SDLK_PAGEDOWN, K_NEXT },
+	{ SDLK_PAGEUP, K_PRIOR },
 	{ SDLK_ESCAPE, K_ESC },
 	{ SDLK_PAUSE, K_PAUSE },
 	{ SDLK_BREAK, K_PAUSE },
