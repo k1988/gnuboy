@@ -30,7 +30,9 @@ Also see OtherEmulators
   * NDS, http://www.pocketheaven.com/ph/wiki/GNUboy_DS
   * Pandora, http://www.gp32x.com/board/index.php?/topic/56916-gnuboy-updated/
   * GP2x, http://wiki.gp2x.org/wiki/GnuBoy2x
-  * GP2x, Lemonboy http://www.gp32spain.com/foros/showthread.php?t=68518
+  * GP2x, Lemonboy
+     * http://www.gp32x.com/board/index.php?/topic/50663-lemonboy2x-updated/
+     * http://www.gp32spain.com/foros/showthread.php?t=68518
   * GP2x/Caanoo, OhBoy
      * http://www.gp32x.com/board/index.php?/topic/56595-ohboy-caanoo-port/
      * http://www.gp32x.com/board/index.php?/topic/51067-ohboy-a-gameboy-color-emulator
