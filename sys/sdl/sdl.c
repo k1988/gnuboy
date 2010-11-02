@@ -192,6 +192,7 @@ void vid_init()
 
 	if (SDL_Init(SDL_INIT_VIDEO))
 		die("SDL: Couldn't initialize SDL: %s\n", SDL_GetError());
+	atexit(SDL_Quit); /* gnuboy uses exit() alot, so need to clear SDL correctly */
 
 	if (!(screen = SDL_SetVideoMode(vmode[0], vmode[1], vmode[2], flags)))
 		die("SDL: can't set video mode: %s\n", SDL_GetError());
@@ -563,15 +564,23 @@ void pcm_close()
 
 
 #ifdef GNUBOY_USE_SDL_TIMERS
+/*
+**  Return timer suitable for use with sys_elapsed()
+**  Timer is initialized with the current time.
+*/
 void *sys_timer()
 {
 	Uint32 *tv;
 	
 	tv = malloc(sizeof *tv);
 	*tv = SDL_GetTicks() * 1000;
-	return tv;
+	return (void *) tv;
 }
 
+/*
+**  Return number of microseconds since input timer was last updated.
+**  Also update the input timer with the current time.
+*/
 int sys_elapsed(void *in_ptr)
 {
 	Uint32 *cl;
@@ -582,15 +591,28 @@ int sys_elapsed(void *in_ptr)
 	now = SDL_GetTicks() * 1000;
 	usecs = now - *cl;
 	*cl = now;
-	return usecs;
+	return (int) usecs;
 }
 
 void sys_sleep(int us)
 {
+	/*
+	**  "us" is microseconds, SDL timers are all milliseconds
+	**  1 second [s]  == 1000 millisecond [ms] == 1000000 microsecond [us]
+	**  1 millisecond [ms] == 1000 microsecond [us]
+	**  1000 microsecond [us] == 0.001 millisecond [ms]
+	*/
+
 	/* dbk: for some reason 2000 works..
 	   maybe its just compensation for the time it takes for SDL_Delay to
 	   execute, or maybe sys_timer is too slow */
-	SDL_Delay(us/1000);
+
+	/*
+	** if zero or negative,
+	** do NOT perform math for microsecond to millisecond conversion
+	*/
+	if (us > 0)
+		SDL_Delay(us/1000); /* NOTE signed input to an unsigned input function. */
 }
 
 #endif /* GNUBOY_USE_SDL_TIMERS */
