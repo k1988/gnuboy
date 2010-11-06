@@ -15,7 +15,7 @@
   * Find enhancements implemented in other ports and integrate into this release
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check [http://gambatte.svn.sourceforge.net/viewvc/gambatte/hwtests/ Gambatte test cases], there are many hardware tests cartridges implemented in that project
-  * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI. Note http://scale2x.sourceforge.net/download.html would be suitable as it is also GPL
+  * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI. Note http://scale2x.sourceforge.net/download.html would be suitable as it is also GPL. Or implement some of the ideas from http://www.compuphase.com/graphic/scale.htm
   * Add a menu (avoid command line), see Lemon Boy, Oh Boy, various console ports, etc.
   * Check performance of memcpy, some ports of gnuboy implement a custom memcpy with the reason that it gained frames per seconds.
   * Add screen shots to save slots (related to "add menu")
