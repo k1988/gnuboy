@@ -26,7 +26,7 @@ FB_LIBS =
 SVGA_OBJS = sys/svga/svgalib.o sys/pc/keymap.o @JOY@ @SOUND@
 SVGA_LIBS = -L/usr/local/lib -lvga
 
-SDL_OBJS = sys/sdl/sdl.o sys/sdl/keymap.o
+SDL_OBJS = sys/sdl/sdl.o sys/sdl/keymap.o sys/sdl/SFont.o
 SDL_LIBS = @SDL_LIBS@
 SDL_CFLAGS = @SDL_CFLAGS@
 
@@ -50,6 +50,9 @@ sys/sdl/sdl.o: sys/sdl/sdl.c
 	$(MYCC) $(SDL_CFLAGS) -c $< -o $@
 
 sys/sdl/keymap.o: sys/sdl/keymap.c
+	$(MYCC) $(SDL_CFLAGS) -c $< -o $@
+
+sys/sdl/SFont.o: sys/sdl/SFont.c
 	$(MYCC) $(SDL_CFLAGS) -c $< -o $@
 
 xgnuboy: $(OBJS) $(SYS_OBJS) $(X11_OBJS)
