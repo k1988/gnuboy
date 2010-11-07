@@ -12,8 +12,10 @@ make -B -f Makfile.win
 
 = Linux =
 
+Tested under x86. Known to work with gcc 4.2.2.
+
 {{{
-./configure --with-sdl
+sh ./configure --with-sdl
 make
 }}}
 
