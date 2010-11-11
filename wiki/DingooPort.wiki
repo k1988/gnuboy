@@ -39,7 +39,9 @@ Key mapping:
 || http://www.dingoowiki.com/images/8/8a/Y.png || Y button        ||    Quit ||
 || http://www.dingoowiki.com/images/f/fe/L.png || Left shoulder   ||    Quit ||
 || http://www.dingoowiki.com/images/f/f7/R.png || Right shoulder  ||    Quit ||
-|| POWER UP button ||    Not Mapped ||
+|| ? || POWER UP button ||    Not Mapped ||
+
+Images in table from http://dingoowiki.com/index.php?title=Editing:Guidelines#Controls_section
 
 Keys can be remapped by creating a gnuboy.rc, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details on how config files work. Example:
 {{{
