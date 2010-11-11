@@ -27,18 +27,18 @@ At the moment the port is a .APP, and hard coded to run "adjustris.gb" (availabl
 
 Key mapping:
 
-|| D-pad up        ||    UP ||
-|| D-pad down      ||    DOWN ||
-|| D-pad left      ||    LEFT ||
-|| D-pad right     ||    RIGHT ||
-|| A button        ||    A button ||
-|| B button        ||    B button ||
-|| START button    ||    START ||
-|| SELECT button   ||    SELECT ||
-|| X button        ||    Quit ||
-|| Y button        ||    Quit ||
-|| Left shoulder   ||    Quit ||
-|| Right shoulder  ||    Quit ||
+|| http://www.dingoowiki.com/images/d/da/Up.png || D-pad up        ||    UP ||
+|| http://www.dingoowiki.com/images/f/f9/Down.png || D-pad down      ||    DOWN ||
+|| http://www.dingoowiki.com/images/7/7f/Leftright.png || D-pad left      ||    LEFT ||
+|| http://www.dingoowiki.com/images/7/7f/Leftright.png || D-pad right     ||    RIGHT ||
+|| http://www.dingoowiki.com/images/7/70/A.png || A button        ||    A button ||
+|| http://www.dingoowiki.com/images/5/57/B.png || B button        ||    B button ||
+|| http://www.dingoowiki.com/images/b/b8/Start.png || START button    ||    START ||
+|| http://www.dingoowiki.com/images/e/e8/Select.png || SELECT button   ||    SELECT ||
+|| http://www.dingoowiki.com/images/a/a5/X.png || X button        ||    Quit ||
+|| http://www.dingoowiki.com/images/8/8a/Y.png || Y button        ||    Quit ||
+|| http://www.dingoowiki.com/images/f/fe/L.png || Left shoulder   ||    Quit ||
+|| http://www.dingoowiki.com/images/f/f7/R.png || Right shoulder  ||    Quit ||
 || POWER UP button ||    Not Mapped ||
 
 Keys can be remapped by creating a gnuboy.rc, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details on how config files work. Example:
