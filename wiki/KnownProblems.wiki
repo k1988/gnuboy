@@ -11,7 +11,7 @@
   * Add save screen shot support
   * Add skins support, aka background images (for non-scaled view with a border)
   * Add built in colorscale mapping for GB games (rather than defaulting)
-  * .zip (i.e.pkzip) file support? gzip support is already present (albeit a VERY slow implementation)
+  * .zip (i.e. pkzip) file support? gzip support is already present (albeit a VERY slow implementation). See [http://code.google.com/p/file-extractor/ fex], also see fex and http://byuu.org/bsnes/, bsnes has support for other compression formats via micro-bunzip, a small, simple bzip2 decompression implementation and libjma
   * Find enhancements implemented in other ports and integrate into this release
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check [http://gambatte.svn.sourceforge.net/viewvc/gambatte/hwtests/ Gambatte test cases], there are many hardware tests cartridges implemented in that project
