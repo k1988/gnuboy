@@ -1,5 +1,6 @@
 /*
 ** Dingoo Native SIMulator registration
+** NOTE if GetFileType(), etc. exists the .app file no longer works
 */
 
 #include <stdlib.h>
