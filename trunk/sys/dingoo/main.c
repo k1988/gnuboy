@@ -47,7 +47,8 @@ static char *defaultconfig[] =
 	"bind ins savestate",
 	"bind del loadstate",
 	*/
-	"source gnuboy.rc",
+	"source A:\\GAME\\gnuboy.rc", /* native OS path; try same directory as .sim location */
+	"source gnuboy.rc", /* try same directory as rom */
 	NULL
 };
 
@@ -125,20 +126,62 @@ static void catch_signals()
 		signal(bad_signals[i], fatalsignal);
 }
 
+void debug_printf_init()
+{
+	char tmp_buf[1024];
+	int mesg_len=0;
+	FILE *fptr=NULL;
+
+	fptr = fopen("stdout.txt", "w");
+	if (fptr != NULL)
+	{
+		mesg_len = sprintf(tmp_buf, "stdout for gnuboy\n");
+		fwrite(tmp_buf, mesg_len, 1, fptr);
+		fclose(fptr);
+	}
+	/* else nothing we can do except maybe print to screen */
+}
+
+void debug_printf(char *fmt, ...)
+{
+	va_list ap;
+	char tmp_buf[1024];
+	int mesg_len=0;
+	FILE *fptr=NULL;
+
+	va_start(ap, fmt);
+	fptr = fopen("stdout.txt", "a");
+	if (fptr != NULL)
+	{
+		mesg_len = vsnprintf(tmp_buf, sizeof(tmp_buf)-1, fmt, ap);
+		fwrite(tmp_buf, mesg_len, 1, fptr);
+		fclose(fptr);
+	}
+	/* else nothing we can do except maybe print to screen */
+	va_end(ap);
+}
+
 
 int main(int argc, char *argv[])
 {
 	int i;
-	char *opt, *arg, *cmd, *s, *rom = 0;
+	char *opt, *arg, *cmd, *s, *rom = NULL;
 
+    /*
+	debug_printf_init();
+	debug_printf("argc=%d\n", argc);
+	debug_printf("argv[0]=>%s<\n", argv[0]);
+    */
+    
 	/* Avoid initializing video if we don't have to */
-	for (i = 1; i < argc; i++)
+	/* NOTE under Native dingoo, argv[0] is NOT the exe name but the first argument! */
+	for (i = 0; i < argc; i++)
 	{
 		if (!strcmp(argv[i], "--bind")) i += 2;
 		else if (!strcmp(argv[i], "--source")) i++;
 		else if (!strcmp(argv[i], "--showvars"))
 		{
-			show_exports(); /* FIXME from exports.c but no prototype (header) */
+			show_exports();
 			exit(0);
 		}
 		else if (argv[i][0] == '-' && argv[i][1] == '-');
@@ -147,20 +190,18 @@ int main(int argc, char *argv[])
 	}
 	
 	/*
-	** TMP nasty hack
-	** if no rom name parameter, default to a hard coded rom name
-	** Adjustris by Dave VanEe
+	** If running as a .app, default rom name parameter,
+	** default to a hard coded rom name Adjustris by Dave VanEe
 	** available from http://www.pdroms.de/files/910/
-	** TODO 1 - make a .SIM instead of a .APP
-	** TODO 2 - add a ROM loading menu item
+	** TODO - add a ROM loading menu item
 	*/
-    if (argc == 1) rom = "Adjustris.GB.gz"; 
+	if (!rom) rom = "Adjustris.GB.gz";
 	if (!rom) die("missing ROM filename");
 
 	/* If we have special perms, drop them ASAP! */
 	vid_preinit();
 
-	init_exports(); /* FIXME from exports.c but no prototype (header) */
+	init_exports();
 
 	s = strdup(argv[0]);
 	sys_sanitize(s);
