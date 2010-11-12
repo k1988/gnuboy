@@ -1,9 +1,10 @@
 # Makefile for Dingoo A320 (MIPS cpu)
 # Initially for native SDK from http://code.google.com/p/dingoo-sdk/ with SDL
+# Creates both a .APP file for debug testing, and a SIM for launching
 #
 #
 #   make -f Makefile.dingoo
-#   make -B Makefile.dingoo  # Force
+#   make -B -f Makefile.dingoo  # Force
 #
 
 # Define the applications properties here:
@@ -52,7 +53,11 @@ LD_OPTS   = -nodefaultlibs --script $(LD_SCRIPT) -L$(LIB_PATH) $(LIBS) -o $(APP_
 #SRC_C   = $(foreach dir, $(SOURCE), $(wildcard $(dir)/*.c))
 #SRC_S   = $(foreach dir, $(SOURCE), $(wildcard $(dir)/*.S))
 SRC_CPP = $(foreach dir, $(SOURCE), $(wildcard $(dir)/*.cpp))
-SRC_C   = lcd.c refresh.c lcdc.c palette.c cpu.c mem.c rtc.c hw.c sound.c events.c keytable.c loader.c save.c debug.c emu.c rccmds.c rckeys.c rcvars.c rcfile.c exports.c split.c path.c inflate.c sys/sdl/sdl.c sys/sdl/keymap.c sys/sdl/SFont.c $(SND_SRC_C) sys/dingoo/a320.c sys/dingoo/main.c
+SRC_C   = lcd.c refresh.c lcdc.c palette.c cpu.c mem.c rtc.c hw.c sound.c
+SRC_C  += events.c keytable.c loader.c save.c debug.c emu.c
+SRC_C  += rccmds.c rckeys.c rcvars.c rcfile.c exports.c split.c path.c inflate.c
+SRC_C  += sys/sdl/sdl.c sys/sdl/keymap.c sys/sdl/SFont.c $(SND_SRC_C)
+SRC_C  += sys/dingoo/a320.c sys/dingoo/main.c sys/dingoo/sim.c
 ## Use of SDL means that sound is provided as is the joystick so can not use nosound unless #ifdef SDL code....
 ## sys/dummy/nosound.c sys/dummy/nojoy.c
 SRC_S   = $(foreach dir, $(SOURCE), $(wildcard $(dir)/*.S))
@@ -67,10 +72,13 @@ OBJ     = $(OBJ_CPP) $(OBJ_C) $(OBJ_S)
 
 .PHONY : all
 
-all : $(APP_NAME).app
+all : $(APP_NAME).app $(APP_NAME).sim
 
 $(APP_NAME).app : $(APP_NAME).elf
 	$(DINGOO_SDK)/tools/elf2app/elf2app $(APP_NAME)
+
+$(APP_NAME).sim: $(APP_NAME).app
+	cp $(APP_NAME).app $(APP_NAME).sim
 
 $(APP_NAME).elf : $(OBJ)
 	$(LD) $(OBJ) $(LD_OPTS)
@@ -91,4 +99,4 @@ $(OBJ_S) : %.o : %.S
 .PHONY : clean
 
 clean :
-	rm -f $(OBJ) $(APP_NAME).elf $(APP_NAME).bin $(APP_NAME).app
+	rm -f $(OBJ) $(APP_NAME).elf $(APP_NAME).bin $(APP_NAME).app $(APP_NAME).sim
