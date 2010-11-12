@@ -166,6 +166,11 @@ int main(int argc, char *argv[])
 {
 	int i;
 	char *opt, *arg, *cmd, *s, *rom = NULL;
+#ifdef BUILD_DINGOO_SIM
+    #define ARGC_COUNT_START 0
+#else
+    #define ARGC_COUNT_START 1
+#endif /* BUILD_DINGOO_SIM */
 
     /*
 	debug_printf_init();
@@ -174,8 +179,8 @@ int main(int argc, char *argv[])
     */
     
 	/* Avoid initializing video if we don't have to */
-	/* NOTE under Native dingoo, argv[0] is NOT the exe name but the first argument! */
-	for (i = 0; i < argc; i++)
+	/* NOTE under Native dingoo SIM, argv[0] is NOT the exe name but the first argument! */
+	for (i = ARGC_COUNT_START; i < argc; i++)
 	{
 		if (!strcmp(argv[i], "--bind")) i += 2;
 		else if (!strcmp(argv[i], "--source")) i++;
