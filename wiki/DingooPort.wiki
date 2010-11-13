@@ -44,6 +44,7 @@ Images in table from http://dingoowiki.com/index.php?title=Editing:Guidelines#Co
 
 Keys can be remapped by creating a gnuboy.rc, see http://code.google.com/p/gnuboy/source/browse/trunk/docs/CONFIG for details on how config files work. Example:
 {{{
+set sdl_showfps 2
 set samplerate 8000
 bind up quit
 }}}
