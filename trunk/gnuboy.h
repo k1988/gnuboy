@@ -24,6 +24,8 @@ void sys_sanitize(char *s);
 void sys_initpath(char *exe);
 void doevents();
 void die(char *fmt, ...);
+void debug_printf_init();
+void debug_printf(char *fmt, ...);
 
 /* FIXME this header files is a poor location for the following prototypes */
 /*------------------------------------------*/
@@ -69,6 +71,9 @@ void refresh_3_4x(byte *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_2x(un32 *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_3x(un32 *dest, byte *src, un32 *pal, int cnt);
 void refresh_4_4x(un32 *dest, byte *src, un32 *pal, int cnt);
+
+/* path.c */
+char *path_search(char *name, char *mode, char *path);
 
 /* debug.c */
 void debug_disassemble(addr a, int c);
