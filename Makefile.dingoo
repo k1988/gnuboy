@@ -56,7 +56,8 @@ LD_OPTS   = -nodefaultlibs --script $(LD_SCRIPT) -L$(LIB_PATH) $(LIBS) -o $(APP_
 SRC_CPP = $(foreach dir, $(SOURCE), $(wildcard $(dir)/*.cpp))
 SRC_C   = lcd.c refresh.c lcdc.c palette.c cpu.c mem.c rtc.c hw.c sound.c
 SRC_C  += events.c keytable.c loader.c save.c debug.c emu.c
-SRC_C  += rccmds.c rckeys.c rcvars.c rcfile.c exports.c split.c path.c inflate.c
+SRC_C  += rccmds.c rckeys.c rcvars.c rcfile.c exports.c split.c inflate.c
+# path.c 
 SRC_C  += sys/sdl/sdl.c sys/sdl/keymap.c sys/sdl/SFont.c $(SND_SRC_C)
 SRC_C  += sys/dingoo/a320.c sys/dingoo/main.c
 

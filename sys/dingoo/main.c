@@ -161,6 +161,12 @@ void debug_printf(char *fmt, ...)
 	va_end(ap);
 }
 
+char *path_search(char *name, char *mode, char *path)
+{
+    (void) mode; /* avoid warning about unused parameter */
+    (void) path; /* avoid warning about unused parameter */
+	return name;
+}
 
 int main(int argc, char *argv[])
 {

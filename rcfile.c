@@ -1,18 +1,15 @@
 
-
-
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
+#include "gnuboy.h"
 #include "defs.h"
 #include "rc.h"
 #include "hw.h"
 
 
 char *rcpath;
-
-char *path_search();
 
 int rc_sourcefile(char *filename)
 {
@@ -42,5 +39,4 @@ rcvar_t rcfile_exports[] =
 	RCV_STRING("rcpath", &rcpath),
 	RCV_END
 };
-
 
