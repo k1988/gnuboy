@@ -6,10 +6,12 @@
 
 = To Do =
 
-  * Add frame skip (frameskip) option for slow machines.
+  * Add frame skip (frameskip) option for slow machines. See Pocket PC versions.
   * Fix compile warnings
   * Add save screen shot support
-  * Add skins support, aka background images (for non-scaled view with a border)
+  * Add volume support
+  * Add dynamic sound on/off control (currently sound is set at start up time)
+  * Add skins support, aka background images (for non-scaled view with a border), See Lemonboy
   * Add built in colorscale mapping for GB games (rather than defaulting)
   * .zip (i.e. pkzip) file support? gzip support is already present (albeit a VERY slow implementation). See [http://code.google.com/p/file-extractor/ fex], also see fex and http://byuu.org/bsnes/, bsnes has support for other compression formats via micro-bunzip, a small, simple bzip2 decompression implementation and libjma
   * Find enhancements implemented in other ports and integrate into this release
