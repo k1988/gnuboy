@@ -3,7 +3,7 @@
 
 = Introduction =
 
-This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Dingoo], a MIPS based device. The A320 has a "native" OS µC/OS-II (uCOS II) and users can install Dingux, a Linux port. This port is known to work for the native OS and should work for [http://code.google.com/p/dingoo-linux/ Dingux] ([http://www.dingux.com/ also see]) too. Built using the excellent [http://code.google.com/p/dingoo-sdk/ Native Dingoo SDK] created by Flatmush and Harteex.
+This is a port for the China Chip A320 [http://en.wikipedia.org/wiki/Dingoo Dingoo], a MIPS based device. The A320 has a "native" OS µC/OS-II (uCOS II) and users can install Dingux, a Linux port. This port is known to work for the native OS and should work for [http://code.google.com/p/dingoo-linux/ Dingux] ([http://www.dingux.com/ also see]) too. Built using the excellent [http://code.google.com/p/dingoo-sdk/ Native Dingoo SDK] created by Flatmush and Harteex. It uses the [http://code.google.com/p/dingoo-sdk/wiki/DingooSDL Dingoo SDL port].
 
 This is not a user friendly port for end users because:
   # Must use head revs of Dingoo Native SDK for sound to work correctly and at the correct speed, i.e. need http://code.google.com/p/dingoo-sdk/source/detail?r=271 the binary https://code.google.com/p/dingoo-sdk/downloads/detail?name=dingoo_sdk_r251.zip has an issue with SDL Audio
