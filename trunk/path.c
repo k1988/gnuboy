@@ -1,11 +1,8 @@
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-char *strdup();
+#include "gnuboy.h"
 
 #ifdef ALT_PATH_SEP
 #define SEP ';'
@@ -43,10 +40,4 @@ char *path_search(char *name, char *mode, char *path)
 	}
 	return name;
 }
-
-
-
-
-
-
 
