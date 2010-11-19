@@ -168,6 +168,7 @@ char *path_search(char *name, char *mode, char *path)
 	return name;
 }
 
+#ifndef GNUBOY_DISABLE_MAIN
 int main(int argc, char *argv[])
 {
 	int i;
@@ -295,3 +296,4 @@ int main(int argc, char *argv[])
 	/* never reached */
 	return 0;
 }
+#endif /* GNUBOY_DISABLE_MAIN */
