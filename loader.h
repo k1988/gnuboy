@@ -15,6 +15,7 @@ typedef struct loader_s
 extern loader_t loader;
 
 void loader_init(char *s);
+void loader_unload();
 int rom_load();
 int sram_load();
 int sram_save();
