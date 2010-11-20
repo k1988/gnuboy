@@ -327,10 +327,11 @@ void loader_unload()
 	mbc.type = mbc.romsize = mbc.ramsize = mbc.batt = 0;
 }
 
+/* basename/dirname like function */
 static char *base(char *s)
 {
 	char *p;
-	p = (char *) strrchr(s, '/');
+	p = (char *) strrchr(s, DIRSEP_CHAR);
 	if (p) return p+1;
 	return s;
 }
@@ -376,7 +377,7 @@ void loader_init(char *s)
 	else name = ldup(rom.name);
 	
 	saveprefix = malloc(strlen(savedir) + strlen(name) + 2);
-	sprintf(saveprefix, "%s/%s", savedir, name);
+	sprintf(saveprefix, "%s%s%s", savedir, DIRSEP, name);
 
 	sramfile = malloc(strlen(saveprefix) + 5);
 	strcpy(sramfile, saveprefix);

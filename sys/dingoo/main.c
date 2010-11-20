@@ -47,7 +47,7 @@ static char *defaultconfig[] =
 	"bind ins savestate",
 	"bind del loadstate",
 	*/
-	"source A:\\GAME\\gnuboy.rc", /* native OS path; try same directory as .sim location */
+	"source A:\\\\GAME\\\\gnuboy.rc", /* native OS path; Maybe try same directory as .sim location too? NOTE gnuboy.rc needs "\" to be escaped (as does C compiler for string literals) */
 	"source gnuboy.rc", /* try same directory as rom */
 	NULL
 };

@@ -54,7 +54,7 @@ void sys_initpath(char *exe)
 	char *buf, *home, *p;
 
 	home = strdup(exe);
-	p = strrchr(home, '/');
+	p = strrchr(home, DIRSEP_CHAR);
 	if (p) *p = 0;
 	else
 	{
@@ -64,7 +64,7 @@ void sys_initpath(char *exe)
 		return;
 	}
 	buf = malloc(strlen(home) + 8);
-	sprintf(buf, ".;%s/", home);
+	sprintf(buf, ".;%s%s", home, DIRSEP);
 	rc_setvar("rcpath", 1, &buf);
 	sprintf(buf, ".");
 	rc_setvar("savedir", 1, &buf);
@@ -73,9 +73,6 @@ void sys_initpath(char *exe)
 
 void sys_sanitize(char *s)
 {
-	int i;
-	for (i = 0; s[i]; i++)
-		if (s[i] == '\\') s[i] = '/';
 }
 
 

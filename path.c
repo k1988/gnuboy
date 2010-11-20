@@ -18,7 +18,7 @@ char *path_search(char *name, char *mode, char *path)
 	int l;
 
 	if (buf) free(buf); buf = 0;
-	if (!path || !*path || *name == '/')
+	if (!path || !*path || *name == DIRSEP_CHAR)
 		return (buf = strdup(name));
 
 	buf = malloc(strlen(path) + strlen(name) + 2);
@@ -30,7 +30,7 @@ char *path_search(char *name, char *mode, char *path)
 		if (n) l = n - p;
 		else l = strlen(p);
 		strncpy(buf, p, l);
-		buf[l] = '/';
+		buf[l] = DIRSEP_CHAR;
 		strcpy(buf+l+1, name);
 		if ((f = fopen(buf, mode)))
 		{
