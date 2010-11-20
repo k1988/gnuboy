@@ -1,6 +1,13 @@
 #ifndef __GNUBOY_H__
 #define __GNUBOY_H__
 
+#ifndef DIRSEP
+/* define Unix style path seperator */
+/* probably could do this better with # string literal macro trick ... for now duplicate */
+#define DIRSEP "/"
+#define DIRSEP_CHAR '/'
+#endif /* DIRSEP */
+
 void ev_poll();
 void vid_close();
 void pcm_close();

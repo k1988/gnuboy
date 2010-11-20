@@ -180,7 +180,7 @@ static void catch_signals()
 static char *base(char *s)
 {
 	char *p;
-	p = strrchr(s, '/');
+	p = strrchr(s, DIRSEP_CHAR);
 	if (p) return p+1;
 	return s;
 }
