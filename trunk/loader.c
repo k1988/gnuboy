@@ -75,18 +75,18 @@ static int ramsize_table[256] =
 };
 
 
-static char *romfile;
-static char *sramfile;
-static char *rtcfile;
-static char *saveprefix;
+static char *romfile=NULL;
+static char *sramfile=NULL;
+static char *rtcfile=NULL;
+static char *saveprefix=NULL;
 
-static char *savename;
-static char *savedir;
+static char *savename=NULL;
+static char *savedir=NULL;
 
-static int saveslot;
+static int saveslot=0;
 
-static int forcebatt, nobatt;
-static int forcedmg, gbamode;
+static int forcebatt=0, nobatt=0;
+static int forcedmg=0, gbamode=0;
 
 static int memfill = -1, memrand = -1;
 

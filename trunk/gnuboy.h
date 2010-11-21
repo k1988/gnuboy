@@ -39,8 +39,14 @@ void sys_sanitize(char *s);
 void sys_initpath(char *exe);
 void doevents();
 void die(char *fmt, ...);
+
+#ifndef GNUBOY_NO_PRINTF
+#define debug_printf_init()
+#define debug_printf printf
+#else
 void debug_printf_init();
 void debug_printf(char *fmt, ...);
+#endif /* GNUBOY_HAVE_PRINTF */
 
 /* FIXME this header files is a poor location for the following prototypes */
 /*------------------------------------------*/
