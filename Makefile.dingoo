@@ -30,7 +30,6 @@ CC_OPTS   += -DNDEBUG=1  ## allow assert() calls to be removed, if left fails to
 CC_OPTS   += -DIS_LITTLE_ENDIAN
 CC_OPTS   += -DGNUBOY_USE_BINARY_RTC_FILES -DGNUBOY_DISABLE_DEBUG_DISASSEMBLE
 CC_OPTS   += -DDINGOO_DIE_LOG_TO_FILE
-CC_OPTS   += -DDIRSEP='"/"' -DDIRSEP_CHAR="'/'" 
 CC_OPTS_A = $(CC_OPTS) -D_ASSEMBLER_
 
 # Note disabling sound seems to freeze up Dingoo version (win32 is fine) :-(
