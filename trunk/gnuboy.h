@@ -15,7 +15,6 @@
 
 void ev_poll();
 void vid_close();
-void pcm_close();
 void vid_preinit();
 void vid_init();
 void vid_begin();
@@ -30,6 +29,10 @@ int sys_elapsed(void *in_ptr);
 /* Sound */
 void pcm_init();
 int pcm_submit();
+void pcm_close();
+#ifdef GNUBOY_HARDWARE_VOLUME
+void pcm_volume(int volume); /* volume should be specified in percent 0-100 */
+#endif /* GNBOY_HARDWARE_VOLUME */
 
 void sys_checkdir(char *path, int wr);
 void sys_sanitize(char *s);

@@ -9,6 +9,8 @@
 #include <stdarg.h>
 #include <signal.h>
 
+#include <dingoo/audio.h>
+
 #include "gnuboy.h"
 #include "loader.h"
 #include "input.h"
@@ -167,6 +169,30 @@ char *path_search(char *name, char *mode, char *path)
     (void) path; /* avoid warning about unused parameter */
 	return name;
 }
+
+/*
+** Set hardware volumne control
+** volume should be specified in percent from 0 to 100
+*/
+void pcm_volume(int volume)
+{
+    #define MAX_DINGO_VOLUME 30
+    
+    /*
+    ** Do not bother checking input
+    ** Convert input percent into hardware value
+    */
+    volume = volume * MAX_DINGO_VOLUME / 100;
+    
+    /* Do check what we send to the hardware */
+    if (volume > MAX_DINGO_VOLUME)
+        volume = MAX_DINGO_VOLUME;
+    if (volume < 0)
+        volume = 0;
+
+    waveout_set_volume((unsigned int) volume);
+}
+
 
 #ifndef GNUBOY_DISABLE_MAIN
 int main(int argc, char *argv[])
