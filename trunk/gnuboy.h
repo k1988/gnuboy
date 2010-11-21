@@ -2,10 +2,15 @@
 #define __GNUBOY_H__
 
 #ifndef DIRSEP
-/* define Unix style path seperator */
-/* probably could do this better with # string literal macro trick ... for now duplicate */
-#define DIRSEP "/"
-#define DIRSEP_CHAR '/'
+    #ifdef DINGOO_NATIVE
+        #define DIRSEP "\\"
+        #define DIRSEP_CHAR '\\'
+    #else /* DINGOO_NATIVE */
+        /* define Unix style path seperator */
+        /* probably could do this better with # string literal macro trick ... for now duplicate */
+        #define DIRSEP "/"
+        #define DIRSEP_CHAR '/'
+    #endif /* DINGOO_NATIVE */
 #endif /* DIRSEP */
 
 void ev_poll();
