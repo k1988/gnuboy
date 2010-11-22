@@ -6,6 +6,7 @@ Also see OtherEmulators
   * Dreamcast http://pqrs.org/dreamcast/software/dcgnuboy/
   * Dreamcast http://www.dcemu.co.uk/vbulletin/showthread.php?t=103584
   * Dreamcast http://dcemulation.org/phpBB/viewtopic.php?f=45&t=91022
+  * Dingoo Native (µC/OS-II) - this project DingooPort using [http://code.google.com/p/dingoo-sdk/wiki/DingooSDL Dingoo SDL] from the [http://code.google.com/p/dingoo-sdk/ Native Dingoo SDK]
   * Dingoo, Joyrider, 
      * Native (µC/OS-II)
         * http://dl.openhandhelds.org/cgi-bin/dingoo.cgi?0,0,0,0,71,216 (Harteex memory leak version)
