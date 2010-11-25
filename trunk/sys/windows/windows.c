@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "gnuboy.h"
+
 #include "rc.h"
 
 /*
