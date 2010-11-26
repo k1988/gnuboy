@@ -133,12 +133,15 @@ static void overlay_init()
 
 	if (!overlay) return;
 
+#ifndef GNUBOY_HACK_ALWAYS_USE_YUV_IF_REQUESTED
+	/* check if there is hardware support, use regular RGB mode if there is no HW support */
 	if (!overlay->hw_overlay || overlay->planes > 1)
 	{
 		SDL_FreeYUVOverlay(overlay);
 		overlay = 0;
 		return;
 	}
+#endif /* GNUBOY_HACK_ALWAYS_USE_YUV_IF_REQUESTED */
 
 	SDL_LockYUVOverlay(overlay);
 	
@@ -453,6 +456,24 @@ void vid_end()
 	if (overlay)
 	{
 		SDL_UnlockYUVOverlay(overlay);
+        
+#ifdef SDL_YUV_SHOW_FPS_TO_STDOUT
+        /* Hack to dump FPS to stdout when YUV mode is enabled */
+        if (sdl_showfps)
+        {
+            fps_current_time = SDL_GetTicks();
+            fps_current_count++;
+            if ( fps_current_time - fps_last_time >= 1000 )
+            {
+                printf("%d FPS\n", fps_last_count);
+                /* reset fps count every second (not every frame) */
+                fps_last_count = fps_current_count;
+                fps_current_count = 0;
+                fps_last_time = fps_current_time;
+            }
+        }
+#endif /* SDL_YUV_SHOW_FPS_TO_STDOUT */
+
 		if (fb.enabled)
 			SDL_DisplayYUVOverlay(overlay, &overlay_rect);
 		return;
