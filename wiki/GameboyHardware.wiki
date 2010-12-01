@@ -7,3 +7,4 @@
   * [http://www.devrs.com/gb/ developing for the GB]
   * [http://gbdk.sourceforge.net/ GameBoy Developers Kit (GBDK)]
   * http://fms.komkon.org/GameBoy/ Link to more gameboy tech/dev links :-) Also the home of a library for GB/GBC rom image reading/handling
+  * [http://code.google.com/p/ugabe/source/browse/#svn/trunk/jgbe CPU and cartridge information (PDFs)]
