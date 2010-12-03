@@ -104,16 +104,6 @@ static int cmd_loadstate(int argc, char **argv)
 
 rccmd_t rccmds[] =
 {
-	RCC("set", cmd_set),
-	RCC("bind", cmd_bind),
-	RCC("unbind", cmd_unbind),
-	RCC("unbindall", cmd_unbindall),
-	RCC("source", cmd_source),
-	RCC("reset", cmd_reset),
-	RCC("quit", cmd_quit),
-	RCC("savestate", cmd_savestate),
-	RCC("loadstate", cmd_loadstate),
-	
 	RCC("+up", cmd_up),
 	RCC("-up", cmd_up),
 	RCC("+down", cmd_down),
@@ -130,6 +120,16 @@ rccmd_t rccmds[] =
 	RCC("-start", cmd_start),
 	RCC("+select", cmd_select),
 	RCC("-select", cmd_select),
+	
+	RCC("set", cmd_set),
+	RCC("bind", cmd_bind),
+	RCC("unbind", cmd_unbind),
+	RCC("unbindall", cmd_unbindall),
+	RCC("source", cmd_source),
+	RCC("reset", cmd_reset),
+	RCC("quit", cmd_quit),
+	RCC("savestate", cmd_savestate),
+	RCC("loadstate", cmd_loadstate),
 	
 	RCC_END
 };
