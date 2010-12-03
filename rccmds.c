@@ -96,6 +96,18 @@ static int cmd_loadstate(int argc, char **argv)
 	return 0;
 }
 
+#ifndef GNUBOY_NO_SCREENSHOT
+static int cmd_screenshot(int argc, char **argv)
+{
+	int i=0;
+	char *filename=NULL;
+
+	if (argc >= 2)
+		filename = argv[1];
+
+	return vid_screenshot(filename);
+}
+#endif /* GNUBOY_NO_SCREENSHOT */
 
 
 /*
@@ -120,6 +132,10 @@ rccmd_t rccmds[] =
 	RCC("-start", cmd_start),
 	RCC("+select", cmd_select),
 	RCC("-select", cmd_select),
+	
+#ifndef GNUBOY_NO_SCREENSHOT
+	RCC("screenshot", cmd_screenshot),
+#endif /* GNUBOY_NO_SCREENSHOT */
 	
 	RCC("set", cmd_set),
 	RCC("bind", cmd_bind),

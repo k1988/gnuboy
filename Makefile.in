@@ -8,6 +8,7 @@ LD = $(CC)
 AS = $(CC)
 INSTALL = @INSTALL@
 
+# NOTE if screen shot support is not in a port, add -DGNUBOY_NO_SCREENSHOT define below
 CFLAGS = @CFLAGS@
 LDFLAGS = $(CFLAGS) @LDFLAGS@
 ASFLAGS = $(CFLAGS)

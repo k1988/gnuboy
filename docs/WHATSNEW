@@ -17,6 +17,8 @@ variables sdl_showfps=1 and also sdl_showfps=2. 1 means transparent text
 background, 2 means black.
 PageUp and PageDown keys now supported in SDL port/build. Thanks to
 Michael Mrozek (EvilDragon) for the information. Required for Pandora port.
+SDL port now has "screenshot" command, e.g. in .rc file "bind c screenshot"
+will save a screen shot when the "c" key is pressed.
 
 RELEASE 1.0.4
 
