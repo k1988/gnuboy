@@ -22,3 +22,4 @@
   * Add a menu (avoid command line), see Lemon Boy, Oh Boy, various console ports, etc.
   * Check performance of memcpy, some ports of gnuboy implement a custom memcpy with the reason that it gained frames per seconds.
   * Add screen shots to save slots (related to "add menu")
+  * Add support for physical cartridges, via http://www.retrode.org/ USB device
