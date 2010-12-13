@@ -23,6 +23,7 @@ Added preliminary frames per second display for SDL ONLY. Enabled via sdl_showfp
 PageUp and PageDown keys now supported in SDL port/build. Thanks to Michael Mrozek (EvilDragon). Required for Pandora port.
 SDL port now has "screenshot" command, e.g. in .rc file "bind c screenshot" will save a screen shot when the "c" key is pressed.
 SDL port is now the main port for gnuboy, the FrameBuffer port still works but it does not have the new screenshot support and so the following define "GNUBOY_NO_SCREENSHOT" should be used (until screen shot support is added to the fb port).
+Support for .ZIP files, via minizip. .zip support based on code in Lemonboy and gnuboy-gx.
 
 1.0.4 (2010-10-25)
 fixed a possible out-of-bounds access which could allow a hacked savestate to

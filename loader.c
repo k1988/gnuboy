@@ -188,17 +188,21 @@ int rom_load()
 	byte c, *data, *header;
 	int len = 0, rlen;
 
+#ifndef GNUBOY_NO_MINIZIP
 	if(!check_zip(romfile)){
+#endif /* GNUBOY_USE_MINIZIP */
 		if (strcmp(romfile, "-")) f = fopen(romfile, "rb");
 		else f = stdin;
 		if (!f) die("cannot open rom file: %s\n", romfile);
 
 		data = loadfile(f, &len);
+#ifndef GNUBOY_NO_MINIZIP
 	}
 	else {
 		data = loadzipfile(romfile, &len);
 		if(!data) die("cannot open (zip) rom file: %s\n", romfile);
 	}
+#endif /* GNUBOY_USE_MINIZIP */
 	header = data = decompress(data, &len);
 	
 	memcpy(rom.name, header+0x0134, 16);
