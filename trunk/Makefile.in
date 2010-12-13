@@ -22,9 +22,15 @@ SYS_OBJS = sys/nix/nix.o $(ASM_OBJS)
 SYS_INCS = -I/usr/local/include @XINCS@ -I./sys/nix
 
 ## Requirements for (optional) .zip support
-## Disable with GNUBOY_USE_MINIZIP defined
-SYS_OBJS += unzip/unzip.o unzip/ioapi.o
-LDFLAGS = -lz
+## Disable with GNUBOY_NO_MINIZIP defined
+USE_MINIZIP = True
+ifdef USE_MINIZIP
+	SYS_OBJS += unzip/unzip.o unzip/ioapi.o
+	LDFLAGS = -lz
+else
+	CFLAGS += -DGNUBOY_NO_MINIZIP
+endif
+
 
 FB_OBJS = @FB_OBJS@ @JOY@ @SOUND@
 FB_LIBS = 
