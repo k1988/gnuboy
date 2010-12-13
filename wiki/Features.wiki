@@ -1,0 +1,10 @@
+#summary Features of gnuboy
+
+  * Plain ANSI portable C
+  * Fast, runs on low resource devices
+  * Multi platform:
+    * SDL ports for win32, linux x86
+  * Gameboy emulation
+  * Gameboy Color/Colour emulation
+  * gzip (.gz files) compress roms
+  * pkzip (aka regular .zip files) compressed roms
