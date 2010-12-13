@@ -4,6 +4,15 @@
 #include <time.h>
 #include <ctype.h>
 
+#ifndef GNUBOY_NO_MINIZIP
+/*
+** use http://www.winimage.com/zLibDll/minizip.html v1.1
+** which needs zlib
+*/
+#include <unzip/unzip.h>
+#endif /* GNUBOY_USE_MINIZIP */
+
+
 #include "gnuboy.h"
 #include "defs.h"
 #include "regs.h"
@@ -14,6 +23,10 @@
 #include "rc.h"
 #include "sound.h"
 
+#ifndef GNUBOY_NO_MINIZIP
+static int check_zip(char *filename);
+static byte *loadzipfile(char *archive, int *filesize);
+#endif /* GNUBOY_USE_MINIZIP */
 
 static int mbc_table[256] =
 {
@@ -171,15 +184,21 @@ static byte *decompress(byte *data, int *len)
 
 int rom_load()
 {
-	FILE *f;
+	FILE *f=NULL;
 	byte c, *data, *header;
 	int len = 0, rlen;
 
-	if (strcmp(romfile, "-")) f = fopen(romfile, "rb");
-	else f = stdin;
-	if (!f) die("cannot open rom file: %s\n", romfile);
+	if(!check_zip(romfile)){
+		if (strcmp(romfile, "-")) f = fopen(romfile, "rb");
+		else f = stdin;
+		if (!f) die("cannot open rom file: %s\n", romfile);
 
-	data = loadfile(f, &len);
+		data = loadfile(f, &len);
+	}
+	else {
+		data = loadzipfile(romfile, &len);
+		if(!data) die("cannot open (zip) rom file: %s\n", romfile);
+	}
 	header = data = decompress(data, &len);
 	
 	memcpy(rom.name, header+0x0134, 16);
@@ -213,7 +232,7 @@ int rom_load()
 	hw.cgb = ((c == 0x80) || (c == 0xc0)) && !forcedmg;
 	hw.gba = (hw.cgb && gbamode);
 
-	if (strcmp(romfile, "-")) fclose(f);
+	if (strcmp(romfile, "-")) if (f) fclose(f);
 
 	return 0;
 }
@@ -362,6 +381,7 @@ void loader_init(char *s)
 	romfile = s;
 	rom_load();
 	vid_settitle(rom.name);
+	/* savename(s) for sram and rtc are based on the filename, not the romname (or name in compressed file/archive) */
 	if (savename && *savename)
 	{
 		if (savename[0] == '-' && savename[1] == 0)
@@ -407,3 +427,84 @@ rcvar_t loader_exports[] =
 	RCV_END
 };
 
+#ifndef GNUBOY_NO_MINIZIP
+/*
+** Simplistic zip support, only loads the first file in a zip file
+** with no check as to the type (or filename/extension).
+*/
+
+/*
+**  returns 1 if a filename is a zip file
+*/
+static int check_zip(char *filename)
+{
+    char buf[2];
+    FILE *fd = NULL;
+    fd = fopen(filename, "rb");
+    if(!fd) return (0);
+    fread(buf, 2, 1, fd);
+    fclose(fd);
+    if(memcmp(buf, "PK", 2) == 0) return (1);
+    return (0);
+}
+
+static byte *loadzipfile(char *archive, int *filesize)
+{
+    char name[256];
+    unsigned char *buffer=NULL;
+    int zerror = UNZ_OK;
+    unzFile zhandle;
+    unz_file_info zinfo;
+
+    zhandle = unzOpen(archive);
+    if(!zhandle) return (NULL);
+
+    /* Seek to first file in archive */
+    zerror = unzGoToFirstFile(zhandle);
+    if(zerror != UNZ_OK)
+    {
+        unzClose(zhandle);
+        return (NULL);
+    }
+
+    /* Get information about the file */
+    unzGetCurrentFileInfo(zhandle, &zinfo, &name[0], 0xff, NULL, 0, NULL, 0);
+    *filesize = zinfo.uncompressed_size;
+
+    /* Error: file size is zero */
+    if(*filesize <= 0)
+    {
+        unzClose(zhandle);
+        return (NULL);
+    }
+
+    /* Open current file */
+    zerror = unzOpenCurrentFile(zhandle);
+    if(zerror != UNZ_OK)
+    {
+        unzClose(zhandle);
+        return (NULL);
+    }
+
+    /* Allocate buffer and read in file */
+    buffer = malloc(*filesize);
+    if(!buffer) return (NULL);
+    zerror = unzReadCurrentFile(zhandle, buffer, *filesize);
+
+    /* Internal error: free buffer and close file */
+    if(zerror < 0 || zerror != *filesize)
+    {
+        free(buffer);
+        buffer = NULL;
+        unzCloseCurrentFile(zhandle);
+        unzClose(zhandle);
+        return (NULL);
+    }
+
+    /* Close current file and archive file */
+    unzCloseCurrentFile(zhandle);
+    unzClose(zhandle);
+
+    return (buffer);
+}
+#endif /* GNUBOY_USE_MINIZIP */
