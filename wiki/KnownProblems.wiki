@@ -14,7 +14,7 @@
   * Add skins support, aka background images (for non-scaled view with a border), See Lemonboy
   * Add built in colorscale mapping for GB games (rather than defaulting). MESS supports this, basically the cart is checksum'd and then used to lookup good a looking color palette
   * See http://en.wikipedia.org/wiki/List_of_video_game_console_palettes#Game_Boy_Color for discussion on GBC built in color palettes along with http://en.wikipedia.org/wiki/Game_Boy_Color#Color_palettes_used_for_original_Game_Boy_games
-  * .zip (i.e. pkzip) file support? gzip support is already present (albeit a VERY slow implementation). See [http://code.google.com/p/file-extractor/ fex], also see fex and http://byuu.org/bsnes/, bsnes has support for other compression formats via micro-bunzip, a small, simple bzip2 decompression implementation and libjma. Finally also review see http://zziplib.sourceforge.net/zzip-file.html
+  * Other archive support 7z, etc.  file support? gzip support is already present (albeit a VERY slow implementation). See [http://code.google.com/p/file-extractor/ fex], also see fex and http://byuu.org/bsnes/, bsnes has support for other compression formats via micro-bunzip, a small, simple bzip2 decompression implementation and libjma. Finally also review see http://zziplib.sourceforge.net/zzip-file.html
   * Find enhancements implemented in other ports and integrate into this release
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check [http://gambatte.svn.sourceforge.net/viewvc/gambatte/hwtests/ Gambatte test cases], there are many hardware tests cartridges implemented in that project
