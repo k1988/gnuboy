@@ -13,7 +13,7 @@ Also see [Ports]
      * http://mess.redump.net/mess:drivers:gb:gameboy
      * http://mess.redump.net/mess:drivers:gb:gbcolor
      * http://mess.redump.net/sysinfo:gbcolor
-  * [http://sources.cosam.org/svn/goomba/ Goomba] C and SDK based, note has an IMGUI for menus that is reusable, see http://sources.cosam.org/svn/goomba/src/test.c also see http://sources.cosam.org/svn/pandy/src/ Handy for Pandora that makes use of Goomba generic menu system.
+  * http://webpersona.com/goomba/ C and SDK based, note has an IMGUI for menus that is reusable, also see [http://sources.cosam.org/svn/goomba/ GoombaMenu for SDL] see http://sources.cosam.org/svn/goomba/src/test.c also see http://sources.cosam.org/svn/pandy/src/ Handy for Pandora that makes use of Goomba generic menu system.
 
 = Closed Open Source Emulators =
 
