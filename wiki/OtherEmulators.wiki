@@ -17,4 +17,4 @@ Also see [Ports]
 
 = Closed Open Source Emulators =
 
-  * http://fms.komkon.org/VGB/VGB.html  - pretty accurate and includes a z80 debugger
+  * http://fms.komkon.org/VGB/VGB.html and http://fms.komkon.org/VGB/ - pretty accurate and includes a z80 debugger
