@@ -1,10 +1,17 @@
 #summary Hardware information and links
 
 = Links =
-  * [http://verhoeven272.nl/fruttenboel/Gameboy/pandocs.html.gz Dr Pan Everything You Always Wanted To Know About GAMEBOY]
-  * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBspec.html.gz Dr Pan GBspec]
-  * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBsummary.html Dr Pan GB extra Z80 instructions]
+  * Dr Pan (pandoc)
+    * http://nocash.emubase.de/pandocs.htm
+    * [http://verhoeven272.nl/fruttenboel/Gameboy/pandocs.html.gz Dr Pan Everything You Always Wanted To Know About GAMEBOY]
+    * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBspec.html.gz Dr Pan GBspec]
+    * http://www.opusgames.com/games/GBDev/zips/Gbspec.txt
+    * [ http://verhoeven272.nl/fruttenboel/Gameboy/GBsummary.html Dr Pan GB extra Z80 instructions]
   * [http://www.devrs.com/gb/ developing for the GB]
-  * [http://gbdk.sourceforge.net/ GameBoy Developers Kit (GBDK)]
+  * [http://gbdk.sourceforge.net/ GameBoy Developers Kit (GBDK), asm and c]
   * http://fms.komkon.org/GameBoy/ Link to more gameboy tech/dev links :-) Also the home of a library for GB/GBC rom image reading/handling
   * [http://code.google.com/p/ugabe/source/browse/#svn/trunk/jgbe CPU and cartridge information (PDFs)]
+
+= gameboy hardware tests from gambatte (C++ based GB/GBC emu) =
+
+  * http://gambatte.svn.sourceforge.net/viewvc/gambatte/hwtests/dma/ includes GBC hdma vram dma
