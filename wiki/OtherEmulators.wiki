@@ -21,3 +21,4 @@ Also see [Ports]
 
   * http://bgb.bircd.org/ bgb, GB and GBC emulator (Windows only?) has a debugger (runs under wine), has a great VRAM tile/viewer
   * http://fms.komkon.org/VGB/VGB.html and http://fms.komkon.org/VGB/ - pretty accurate and includes a z80 debugger
+  * http://kigb.emuunlim.com/
