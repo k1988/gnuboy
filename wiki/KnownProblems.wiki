@@ -6,10 +6,13 @@
 
 = To Do =
 
-  * Add frame skip (frameskip) option for slow machines. See Pocket PC versions.
-  * Fix compile warnings
-  * Add save screen shot support
-  * Add volume support
+  * Add console for SDL ala http://sources.cosam.org/svn/goomba/
+  * Add a menu (avoid command line), see Lemon Boy, Oh Boy, various console ports, etc.
+  * Add a menu, either a new menu system, or something based on Oh Boy or [http://sources.cosam.org/svn/goomba/ Goomba SDL menu]
+  * Add frame skip (frameskip) option for slow machines. See Pocket PC versions, OhBoy, Joyrider Dingoo port.
+  * Fix compile warnings - mostly done as of late nov 2010
+  * Add save screen shot support - done
+  * Add volume support - see Oh Boy
   * Add dynamic sound on/off control (currently sound is set at start up time)
   * Add skins support, aka background images (for non-scaled view with a border), See Lemonboy
   * Add built in colorscale mapping for GB games (rather than defaulting). MESS supports this, basically the cart is checksum'd and then used to lookup good a looking color palette
@@ -18,8 +21,7 @@
   * Find enhancements implemented in other ports and integrate into this release
   * [http://brunni.dev-fr.org/index.php?page=pcsoft_heigboy ColourIt] support
   * Check [http://gambatte.svn.sourceforge.net/viewvc/gambatte/hwtests/ Gambatte test cases], there are many hardware tests cartridges implemented in that project
-  * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI. Note http://scale2x.sourceforge.net/download.html would be suitable as it is also GPL. Or implement some of the ideas from http://www.compuphase.com/graphic/scale.htm
-  * Add a menu (avoid command line), see Lemon Boy, Oh Boy, various console ports, etc.
+  * Improve scalars, this may be tricky with regard to licensing.  See note in [http://code.google.com/p/gnuboy/source/browse/trunk/README README] regarding Eagle/2xSaI. Note http://scale2x.sourceforge.net/download.html would be suitable as it is also GPL. Or implement some of the ideas from http://www.compuphase.com/graphic/scale.htm - See Oh Boy
   * Check performance of memcpy, some ports of gnuboy implement a custom memcpy with the reason that it gained frames per seconds.
   * Add screen shots to save slots (related to "add menu")
   * Add support for physical cartridges, via http://www.retrode.org/ USB device
