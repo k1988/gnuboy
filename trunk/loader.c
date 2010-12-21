@@ -459,10 +459,19 @@ static byte *loadzipfile(char *archive, int *filesize)
     int zerror = UNZ_OK;
     unzFile zhandle;
     unz_file_info zinfo;
+    char tmp_header[0x200];
+    unsigned char rom_found=0;
 
     zhandle = unzOpen(archive);
     if(!zhandle) return (NULL);
 
+#ifdef IS_LITTLE_ENDIAN
+#define GAMEBOY_HEADER_MAGIC 0x6666EDCE
+#else /* BIG ENDIAN */
+#define GAMEBOY_HEADER_MAGIC 0xCEED6666
+#endif /* IS_LITTLE_ENDIAN */
+
+    /* Find first gameboy rom, do not use file extension, look for magic bytes/fingerprint */
     /* Seek to first file in archive */
     zerror = unzGoToFirstFile(zhandle);
     if(zerror != UNZ_OK)
@@ -470,6 +479,22 @@ static byte *loadzipfile(char *archive, int *filesize)
         unzClose(zhandle);
         return (NULL);
     }
+    
+    do
+    {
+        unzOpenCurrentFile(zhandle);
+        unzReadCurrentFile(zhandle, tmp_header, sizeof(tmp_header));
+        unzCloseCurrentFile(zhandle);
+        if ((*((unsigned long *)(tmp_header + 0x104))) == GAMEBOY_HEADER_MAGIC)
+        {
+            /* Gameboy Rom found! */
+            rom_found++;
+            break;
+        }
+    } while (unzGoToNextFile(zhandle) != UNZ_END_OF_LIST_OF_FILE);
+    
+    if (rom_found == 0)
+        return (NULL);
 
     /* Get information about the file */
     unzGetCurrentFileInfo(zhandle, &zinfo, &name[0], 0xff, NULL, 0, NULL, 0);
