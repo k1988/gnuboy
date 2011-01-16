@@ -25,3 +25,19 @@
   * Check performance of memcpy, some ports of gnuboy implement a custom memcpy with the reason that it gained frames per seconds.
   * Add screen shots to save slots (related to "add menu")
   * Add support for physical cartridges, via http://www.retrode.org/ USB device
+  * Currently sound is handled via a callback into the "porting" (or IO) layer, consider adding a build option for sound callback into gnuboy. This matches a few API approaches (like SDL). Ayla has been looking at a prototype for this:
+
+{{{
+The principe is to remove the part that produces sound on the main 
+emulator loop, and to put it on the SDL callback; then, it removes 
+the need for an intermediate buffer, and SDL always get the number 
+of samples it asked so there are no cracks.
+
+Plus, if you set the number of samples when initing SDL sound to 736 
+(~= 44100/60Hz), you will have exactly 60 callbacks per second, so using
+a simple semaphore you can synchronize on sound. The major interest is 
+that it's much more precise than waits (the dingoo wait time is MINIMUM 
+one millisecond) so it results in smoother emulation. The drawback is 
+that it is not supported by OSS. But it works on openAL, ALSA, and on 
+native firmware.
+}}}
