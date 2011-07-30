@@ -1,0 +1,3 @@
+#summary The GUI menu system for gnuboy
+
+For more information see the [http://code.google.com/p/ohboy/ OhBoy project].
