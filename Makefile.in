@@ -8,8 +8,13 @@ LD = $(CC)
 AS = $(CC)
 INSTALL = @INSTALL@
 
-# NOTE if screen shot support is not in a port, add -DGNUBOY_NO_SCREENSHOT define below
 CFLAGS = @CFLAGS@
+# NOTE if get; undefined reference to 'vid_screenshot'
+# screen shot support is not in the port/backend.
+# Add -DGNUBOY_NO_SCREENSHOT define below.
+# SDL port includes screen shot support already.
+#CFLAGS += -DGNUBOY_NO_SCREENSHOT
+
 LDFLAGS = $(CFLAGS) @LDFLAGS@
 ASFLAGS = $(CFLAGS)
 
@@ -30,9 +35,6 @@ ifdef USE_MINIZIP
 else
 	CFLAGS += -DGNUBOY_NO_MINIZIP
 endif
-
-CFLAGS += -DGNUBOY_NO_SCREENSHOT
-
 
 FB_OBJS = @FB_OBJS@ @JOY@ @SOUND@
 FB_LIBS = 
