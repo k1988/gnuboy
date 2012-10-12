@@ -51,7 +51,9 @@ static char *defaultconfig[] =
 	"bind ins savestate",
 	"bind del loadstate",
 	*/
+#ifdef DINGOO_NATIVE
 	"source A:\\\\GAME\\\\gnuboy.rc", /* native OS path; Maybe try same directory as .sim location too? NOTE gnuboy.rc needs "\" to be escaped (as does C compiler for string literals) */
+#endif /* DINGOO_NATIVE */
 	"source gnuboy.rc", /* try same directory as rom */
 	NULL
 };
@@ -167,13 +169,16 @@ void debug_printf(char *fmt, ...)
 }
 #endif /* GNUBOY_HAVE_PRINTF */
 
+#ifdef DINGOO_NATIVE
 char *path_search(char *name, char *mode, char *path)
 {
     (void) mode; /* avoid warning about unused parameter */
     (void) path; /* avoid warning about unused parameter */
 	return name;
 }
+#endif /* DINGOO_NATIVE */
 
+#ifdef GNUBOY_HARDWARE_VOLUME
 /*
 ** Set hardware volumne control
 ** volume should be specified in percent from 0 to 100
@@ -194,11 +199,10 @@ void pcm_volume(int volume)
     if (volume < 0)
         volume = 0;
 
-#ifdef DINGOO_NATIVE
     /* FIXME TODO this should be moved into sys/dingoo/native.c */
     waveout_set_volume((unsigned int) volume);
-#endif /* DINGOO_NATIVE */
 }
+#endif /* GNBOY_HARDWARE_VOLUME */
 
 
 #ifndef GNUBOY_DISABLE_MAIN
