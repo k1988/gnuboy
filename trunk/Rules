@@ -8,7 +8,7 @@ OBJS = lcd.o refresh.o lcdc.o palette.o cpu.o mem.o rtc.o hw.o sound.o \
 	split.o path.o inflate.o
 
 ifndef DO_NOT_USE_MAIN
-	OBJS = main.o
+	OBJS += main.o
 endif
 
 
