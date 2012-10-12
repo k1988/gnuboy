@@ -9,7 +9,9 @@
 #include <stdarg.h>
 #include <signal.h>
 
+#ifdef DINGOO_NATIVE
 #include <dingoo/audio.h>
+#endif /* DINGOO_NATIVE */
 
 #include "gnuboy.h"
 #include "loader.h"
@@ -128,6 +130,7 @@ static void catch_signals()
 		signal(bad_signals[i], fatalsignal);
 }
 
+#ifdef GNUBOY_NO_PRINTF
 void debug_printf_init()
 {
 	char tmp_buf[1024];
@@ -162,6 +165,7 @@ void debug_printf(char *fmt, ...)
 	/* else nothing we can do except maybe print to screen */
 	va_end(ap);
 }
+#endif /* GNUBOY_HAVE_PRINTF */
 
 char *path_search(char *name, char *mode, char *path)
 {
@@ -190,7 +194,10 @@ void pcm_volume(int volume)
     if (volume < 0)
         volume = 0;
 
+#ifdef DINGOO_NATIVE
+    /* FIXME TODO this should be moved into sys/dingoo/native.c */
     waveout_set_volume((unsigned int) volume);
+#endif /* DINGOO_NATIVE */
 }
 
 

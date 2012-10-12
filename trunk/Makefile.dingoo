@@ -28,6 +28,7 @@ CPP_OPTS  = -G0 -O3 $(INCLUDE) -mips32 -mno-abicalls -fno-pic $(W_OPTS) -D_DEBUG
 CC_OPTS   = -G0 -O3 $(INCLUDE) -mips32 -mno-abicalls -fno-pic $(W_OPTS) -D_DEBUG -DMPU_JZ4740 -c
 CC_OPTS   += -DNDEBUG=1  ## allow assert() calls to be removed, if left fails to build with Dingoo native
 CC_OPTS   += -DIS_LITTLE_ENDIAN
+CC_OPTS   += -DDINGOO_BUILD -DDINGOO_NATIVE
 CC_OPTS   += -DGNUBOY_USE_BINARY_RTC_FILES -DGNUBOY_DISABLE_DEBUG_DISASSEMBLE
 CC_OPTS   += -DDINGOO_DIE_LOG_TO_FILE
 CC_OPTS   += -DGNUBOY_NO_PRINTF  ## dingoo does have printf BUT it goes to the serial port (well contact pads where you can solder a serial port/line).
