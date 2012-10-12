@@ -3,6 +3,8 @@
 # NOTE! Requires DINGUX_SDK environment variable to be set to Open Dingux
 #       location (typically this is "/opt/opendingux-toolchain").
 
+# TODO STRIP
+
 EXE_PREFIX = mipsel-linux-
 CC        = ${EXE_PREFIX}gcc
 
@@ -35,7 +37,7 @@ ifdef DISABLE_SOUND
 	SND_OBJS = sys/dummy/nosound.o
 endif
 
-SYS_OBJS = $(ASM_OBJS) $(SND_OBJS) sys/dingoo/a320.o
+SYS_OBJS = $(ASM_OBJS) $(SND_OBJS) sys/dingoo/a320.o sys/dingoo/main.o
 #SYS_OBJS = $(ASM_OBJS) $(SND_OBJS) sys/dingoo/a320.o sys/dingoo/main.o
 #SYS_INCS = -I./sys/nix
 
@@ -49,14 +51,20 @@ SDL_OBJS    += unzip/unzip.o unzip/ioapi.o
 #LIBS    += -lz
 CC_OPTS += -DUSE_FILE32API
 
+
+OBJS   = lcd.o refresh.o lcdc.o palette.o cpu.o mem.o rtc.o hw.o sound.o
+OBJS  += events.o keytable.o loader.o save.o debug.o emu.o
+OBJS  += rccmds.o rckeys.o rcvars.o rcfile.o exports.o split.o inflate.o
+
 TARGET = gnuboy_dingux.dge
 
 all: $(TARGET)
 
+DO_NOT_USE_MAIN = True
 include Rules
 
 $(TARGET): $(OBJS) $(SYS_OBJS) $(SDL_OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) $(SYS_OBJS) $(SDL_OBJS) -o $@ $(SDL_LIBS)
 
 clean:
-	rm -f $(TARGET) *.o sys/*.o sys/*/*.o sys/*/*/*.o asm/*/*.o
+	rm -f $(TARGET) *.o sys/*.o unzip/*.o sys/*/*.o sys/*/*/*.o asm/*/*.o
