@@ -101,7 +101,7 @@ static int saveslot=0;
 static int forcebatt=0, nobatt=0;
 static int forcedmg=0, gbamode=0;
 
-static int memfill = -1, memrand = -1;
+static int memfill = 0, memrand = -1;
 
 
 static void initmem(void *mem, int size)
