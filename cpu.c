@@ -260,7 +260,12 @@ void cpu_reset()
 	if (hw.gba) B = 0x01;
 }
 
-
+/* cnt - time to emulate, expressed in 2MHz units in
+	single-speed and 4MHz units in double speed mode
+	
+	FIXME: employ common unit to drive whatever_advance(),
+	(double-speed machine cycles (2MHz) is a good candidate)
+	handle differences in place */
 void div_advance(int cnt)
 {
 	cpu.div += (cnt<<1);
@@ -271,6 +276,12 @@ void div_advance(int cnt)
 	}
 }
 
+/* cnt - time to emulate, expressed in 2MHz units in
+	single-speed and 4MHz units in double speed mode
+	
+	FIXME: employ common unit to drive whatever_advance(),
+	(double-speed machine cycles (2MHz) is a good candidate)
+	handle differences in place */
 void timer_advance(int cnt)
 {
 	int unit, tima;
