@@ -63,5 +63,16 @@ public domain "inflate" decompressor
 Hii (author of TGB) --
 lots of info on various memory mappers
 
+Chris Clark (clach04) --
+Collecting/merging forks.
+Code cleanup to improve portability to embedded systems.
+Dingoo support.
+Clean up SDL port (SDL timers removed from generic code)
+SDL support without sound is now an option.
+Fixed compile warnings, support for new compilers.
+FPS rate support (SDL only).
+Screen shot support.
+ZIP file support.
+
 Andrey Vahrushev (needcomp) --
 GDMA patch, gfx fixes for Shantae and Extreme Ghostbusters

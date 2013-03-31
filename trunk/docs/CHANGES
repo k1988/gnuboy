@@ -11,7 +11,7 @@ GNUBOY CHANGES FILE -- detailed list of all changes made
 
 1.0.5 (svn)
 Simplified ROM loader code, old. Old code can be built with define GNUBOY_ENABLE_ORIGINAL_SLOW_INCREMENTAL_LOADER.
-SDL timer routines moved into SDL port/treeenabled with define GNUBOY_USE_SDL_TIMERS. Windows (SDL) port now makes use of SDL timer.
+SDL timer routines moved into SDL port, re-enable with define GNUBOY_USE_SDL_TIMERS. Windows (SDL) port now makes use of SDL timer.
 RTC load/save routines can now be built to save text (default) or (new) binary format via define GNUBOY_USE_BINARY_RTC_FILES, mostly useful for porters.
 Added build option to disable (some of) the debugger/disassemble code, via define GNUBOY_DISABLE_DEBUG_DISASSEMBLE.
 Added code for Dingoo port (native SDL and Dingux SDL).
@@ -24,7 +24,7 @@ PageUp and PageDown keys now supported in SDL port/build. Thanks to Michael Mroz
 SDL port now has "screenshot" command, e.g. in .rc file "bind c screenshot" will save a screen shot when the "c" key is pressed.
 SDL port is now the main port for gnuboy, the FrameBuffer port still works but it does not have the new screenshot support and so the following define "GNUBOY_NO_SCREENSHOT" should be used (until screen shot support is added to the fb port).
 Support for .ZIP files, via minizip. .zip support based on code in Lemonboy and gnuboy-gx.
-Fix gfx glitches for Shantae andExtreme Ghostbusters.
+Fix gfx glitches for Shantae and Extreme Ghostbusters.
 
 1.0.4 (2010-10-25)
 fixed a possible out-of-bounds access which could allow a hacked savestate to
