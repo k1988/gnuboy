@@ -238,12 +238,22 @@ label: op(b); break;
 
 
 
+
+/* A:
+	Set lcdc ahead of cpu by 19us (matches minimal hblank duration according
+	to some docs). Value from cpu.lcdc (when positive) is used to drive CPU,
+	setting some ahead-time at startup is necessary to begin emulation.
+*/
+
+
 void cpu_reset()
 {
 	cpu.speed = 0;
 	cpu.halt = 0;
 	cpu.div = 0;
 	cpu.tim = 0;
+	/* set lcdc ahead of cpu by 19us; see A */
+	/* FIXME: leave value at 0, use lcdc_trans() to actually send lcdc ahead */
 	cpu.lcdc = 40;
 
 	IME = 0;
@@ -262,8 +272,8 @@ void cpu_reset()
 
 /* cnt - time to emulate, expressed in 2MHz units in
 	single-speed and 4MHz units in double speed mode
-	
-	FIXME: employ common unit to drive whatever_advance(),
+*/
+/* FIXME: employ common unit to drive whatever_advance(),
 	(double-speed machine cycles (2MHz) is a good candidate)
 	handle differences in place */
 void div_advance(int cnt)
@@ -278,8 +288,8 @@ void div_advance(int cnt)
 
 /* cnt - time to emulate, expressed in 2MHz units in
 	single-speed and 4MHz units in double speed mode
-	
-	FIXME: employ common unit to drive whatever_advance(),
+*/
+/* FIXME: employ common unit to drive whatever_advance(),
 	(double-speed machine cycles (2MHz) is a good candidate)
 	handle differences in place */
 void timer_advance(int cnt)
@@ -306,17 +316,23 @@ void timer_advance(int cnt)
 	}
 }
 
+/* cnt - time to emulate, expressed in 2MHz units
+	Will call lcdc_trans() if CPU emulation catched up or
+	went ahead of LCDC, so that lcd never falls	behind
+*/
 void lcdc_advance(int cnt)
 {
 	cpu.lcdc -= cnt;
 	if (cpu.lcdc <= 0) lcdc_trans();
 }
 
+/* cnt - time to emulate, expressed in 2MHz units */
 void sound_advance(int cnt)
 {
 	cpu.snd += cnt;
 }
 
+/* cnt - time to emulate, expressed in 2MHz units */
 void cpu_timers(int cnt)
 {
 	div_advance(cnt << cpu.speed);
@@ -325,6 +341,13 @@ void cpu_timers(int cnt)
 	sound_advance(cnt);
 }
 
+/* cpu_idle() 
+	Skip idle phase of CPU operation, if any
+	
+	max - maximum time to skip expressed in 2MHz units
+	returns number of cycles skipped
+*/
+/* FIXME: bring cpu_timers() out, make caller advance system */
 int cpu_idle(int max)
 {
 	int cnt, unit;
@@ -363,6 +386,15 @@ int cpu_idle(int max)
 
 extern int debug_trace;
 
+/* cpu_emulate()
+	Emulate CPU for time no less than specified
+	
+	cycles - time to emulate, expressed in 2MHz units
+	returns number of cycles emulated
+	
+	Might emulate up to cycles+(11) time units (longest op takes 12
+	cycles in single-speed mode)
+*/
 int cpu_emulate(int cycles)
 {
 	int i;
@@ -374,6 +406,7 @@ int cpu_emulate(int cycles)
 
 	i = cycles;
 next:
+	/* Skip idle cycles */
 	if ((clen = cpu_idle(i)))
 	{
 		i -= clen;
@@ -381,6 +414,7 @@ next:
 		return cycles-i;
 	}
 
+	/* Handle interrupts */
 	if (IME && (IF & IE))
 	{
 		PRE_INT;
@@ -849,6 +883,8 @@ next:
 		break;
 	}
 
+	/* Advance time counters */
+	/* FIXME: make use of cpu_timers() */
 	clen <<= 1;
 	div_advance(clen);
 	timer_advance(clen);
@@ -865,7 +901,7 @@ next:
 
 
 #ifndef ASM_CPU_STEP
-
+/* Outdated equivalent of emu.c:emu_step() probably? Doesn't seem to be used. */
 int cpu_step(int max)
 {
 	int cnt;

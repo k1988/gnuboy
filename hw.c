@@ -68,13 +68,15 @@ whatever we feed these values in takes a time to run expressed in double-speed
 machine cycles as an argument. Whatever DMA-related issues remain, they are
 likely in how intervals are applied and not in how they are calculated.
 
-Had to replace cpu_timers() in GDMA section as it was calling lcdc_trans() and
-breaking Shantae. Figured out the same thing happens to Pokemon Crystal and
-HDMA so I also got HDMA init interval in place. Ghostbusters got fixed somehow
-somewhere along the way.
+Had to replace cpu_timers() in GDMA section, don't know how but it was breaking
+Shantae. Figured out the same thing happens to Pokemon Crystal and HDMA so I
+also got HDMA init interval in place. Ghostbusters got fixed somehow somewhere
+along the way.
 
-Not sure how to be about now-missing lcd update. It doesn't seem to damage any
-games so I decided not to touch anything else.
+Not sure how to be about now-missing lcd update. Note that DMA transfer now
+completes immediately from LCDC perspective, which is far from accurate. Any
+way we better get other bits straight to make sure they don't interfere before
+trying to fix DMA any further.
 */
 
 
@@ -91,6 +93,7 @@ void hw_hdma()
 		writeb(da++, readb(sa++));
 		
 	/* SEE COMMENT B ABOVE */
+	/* NOTE: lcdc_trans() after a call to hw_hdma() will advance lcdc for us */
 	div_advance(16 << cpu.speed);
 	timer_advance(16 << cpu.speed);
 	sound_advance(16);
@@ -124,6 +127,8 @@ void hw_hdma_cmd(byte c)
 		timer_advance(advance << cpu.speed);
 		sound_advance(advance);
 		
+		/* FIXME: according to docs, hdma should not be started during hblank
+		(Extreme Ghostbusters game does, but it also works without this line) */
 		if ((R_STAT&0x03) == 0x00) hw_hdma(); /* SEE COMMENT A ABOVE */
 		return;
 	}
