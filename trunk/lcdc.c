@@ -74,6 +74,9 @@ void lcdc_change(byte b)
 	R_LCDC = b;
 	if ((R_LCDC ^ old) & 0x80) /* lcd on/off change */
 	{
+		/* FIXME; LCDC startup approach has changed; leave lcd_begin()
+		out, set state to zero, set C to zero, call lcdc_change()
+		once, it will do what is necessary */
 		R_LY = 0;
 		stat_change(2);
 		C = 40;
@@ -115,132 +118,142 @@ void lcdc_change(byte b)
 	do not require precise sub-line CPU-LCDC sync, but state 0 might do.
 */
 
+/* NOTE A: Original code had this piece (added in revision 11 from oct
+24 2010) which delays interrupt triggering by 10 cycles if cpu isn't
+halted. Since there is no explanation of why it is there it is now
+commented out and should probably be removed in the future to keep code
+redundancy low. If you decide to have it back, also change old interval
+value within case 1 of the second switch block.
+POTENTIALLY USEFUL CODE KEEP; EXPIRES mar 17 2014 */
+
 /* lcdc_trans()
 	Main LCDC emulation routine
 */
 void lcdc_trans()
 {
-	/* FIXME: lacks clarity;
-	try and break into two switch() blocks
-	switch(state) {
-		case 0:
-			if(vblank) state = 1;
-			else state = 2;
-		case 1:
-			state = 2;
-		case 2:
-			state = 3;
-		case 3:
-			state = 0;
-	}
-	
-	switch(state) {
-		case 0:
-			handle hblank
-		case 1:
-			handle vblank
-		case 2:
-			handle search
-		case 3:
-			handle transfer
-	}
-	*/
-	if (!(R_LCDC & 0x80))
+	if (R_LCDC & 0x80)
+	{
+		/* LCDC operation enabled */
+		while (C <= 0)
+		{
+			/* Update current state */
+			switch ((byte)(R_STAT & 3))
+			{
+				case 0: /* after hblank */
+					/* FIXME: first line of first frame will be skipped
+					each time LCDC is started */
+					if (++R_LY <= 143)
+					{
+						stat_change(2); /* -> search */
+					}
+					else
+					{
+						stat_change(1); /* -> vblank */
+						/* See "NOTE A" above */
+						/*if (cpu.halt)
+						{
+							hw_interrupt(IF_VBLANK, IF_VBLANK);
+							C += 228;
+						}
+						else
+						{
+							C += 10;
+							continue;
+						}*/
+						break;
+					}
+					break;
+				case 2:  /* after search */
+					stat_change(3); /* -> transfer */
+					break;
+				case 3:  /* after transfer */
+					stat_change(0); /* -> hblank */
+					break;
+				case 1: /* after (in) vblank */
+					if (R_LY == 0)
+					{
+						stat_change(2); /* -> search */
+					}
+					break;
+			}
+			
+			/* Handle current state */
+			switch ((byte)(R_STAT & 3))
+			{
+				case 2:  /* search */
+					if (R_LY == 0)
+					{
+						lcd_begin();
+					}
+					C += 40;
+					break;
+				case 3:  /* transfer */
+					lcd_refreshline();
+					C += 86;
+					break;
+				case 0: /* hblank */
+					if (hw.hdma & 0x80) {
+						hw_hdma();
+					}
+					C += 102;
+					break;
+				case 1: /* vblank */
+					if (!(hw.ilines & IF_VBLANK))
+					{
+						C += 228; /*C += 218; See "NOTE A" above */
+						hw_interrupt(IF_VBLANK, IF_VBLANK);
+					}
+					else
+					{
+						R_LY++;
+						if (R_LY < 153)
+						{
+							C += 228;
+						}
+						else if (R_LY == 153)
+						{
+							/* Handling special case on the last line
+							part 1; see docs/HACKING */
+							C += 28;
+						}
+						else
+						{
+							/* Handling special case on the last line
+							part 2; see docs/HACKING */
+							R_LY = 0;
+							C += 200;
+						}
+						stat_trigger();
+					}
+					break;
+			} /* switch(state) */
+		} /* while (C <= 0) */
+	} /* if (R_LCDC & 0x80) */
+	else
 	{
 		/* LCDC operation disabled (short route) */
-		while (C <= 0)
+		if (C <= 0) /* Original code does in fact return after each pass, there is no loop here */
 		{
 			switch ((byte)(R_STAT & 3))
 			{
-			case 0: /* hblank */
-			case 1: /* vblank */
-				stat_change(2);
-				C += 40;
-				break;
-			case 2: /* search */
+			case 2: /* after search */
 				stat_change(3);
 				C += 86;
 				break;
-			case 3: /* transfer */
+			case 3: /* after transfer */
 				stat_change(0);
-				/* FIXME: check docs; HDMA might require operating LCDC */
-				if (hw.hdma & 0x80)
-					hw_hdma();
-				else
-					C += 102;
+				C += 102;
 				break;
-			}
-			return;
-		}
-	}
-	while (C <= 0)
-	{
-		switch ((byte)(R_STAT & 3))
-		{
-		case 1:
-			/* vblank -> */
-			if (!(hw.ilines & IF_VBLANK))
-			{
-				C += 218;
-				hw_interrupt(IF_VBLANK, IF_VBLANK);
+			case 0: /* after hblank */
+				stat_change(2);
+				R_LY++;
+				C += 40;
 				break;
-			}
-			if (R_LY == 0)
-			{
-				lcd_begin();
-				stat_change(2); /* -> search */
+			case 1: /* after (in) vblank */
+				stat_change(2);
 				C += 40;
 				break;
 			}
-			else if (R_LY < 152)
-				C += 228;
-			else if (R_LY == 152)
-				/* Handling special case on the last line; see
-				docs/HACKING */
-				C += 28;
-			else
-			{
-				R_LY = -1;
-				C += 200;
-			}
-			R_LY++;
-			stat_trigger();
-			break;
-		case 2:
-			/* search -> */
-			lcd_refreshline();
-			stat_change(3); /* -> transfer */
-			C += 86;
-			break;
-		case 3:
-			/* transfer -> */
-			stat_change(0); /* -> hblank */
-			if (hw.hdma & 0x80)
-				hw_hdma();
-			/* FIXME -- how much of the hblank does hdma use?? */
-			/* else */
-			C += 102;
-			break;
-		case 0:
-			/* hblank -> */
-			if (++R_LY >= 144)
-			{
-				/* FIXME: pick _one_ place to trigger vblank interrupt
-				this better be done here or within stat_change(),
-				otherwise CPU will have a chance to run	for some time
-				before interrupt is triggered */
-				if (cpu.halt)
-				{
-					hw_interrupt(IF_VBLANK, IF_VBLANK);
-					C += 228;
-				}
-				else C += 10;
-				stat_change(1); /* -> vblank */
-				break;
-			}
-			stat_change(2); /* -> search */
-			C += 40;
-			break;
 		}
 	}
 }
