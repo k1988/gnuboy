@@ -17,11 +17,7 @@ int GetFileType(char* pname) {
 		 ** Must be a maximum of 3 characters for each extension, e.g. I've tried "GBZ|GZ|GBCZ" (with "GBCZ") and it didn't work.
 		 ** TODO check Vectrex emu as it uses VECX without problem (but only the one file extension)
 		 */
-        /*
 		strcpy(pname, "GB|GBC|GBZ|GZ");
-		strcpy(pname, "GBZ|GZ");
-        */
-		strcpy(pname, "GBZ|GZ");
 	}
 	return 0;
 }
