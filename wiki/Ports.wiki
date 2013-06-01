@@ -41,4 +41,4 @@ Also see OtherEmulators
      * http://dl.openhandhelds.org/cgi-bin/wiz.cgi?0,0,0,0,71,274
      * by http://www.gp32x.com/board/index.php?/user/18389-ubyte/
   * Wiz, Lemonboy (with menu) http://dl.openhandhelds.org/cgi-bin/wiz.cgi?0,0,0,0,46,133
-  * DBox2 http://cvs.tuxbox.org/tuxbox/apps/tuxbox/funstuff/gnuboy/
+  * [http://en.wikipedia.org/wiki/DBox2 DBox2] http://sourceforge.net/p/tuxbox-cvs/apps/ci/master/tree/tuxbox/funstuff/gnuboy/
