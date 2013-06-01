@@ -43,3 +43,4 @@ Also see OtherEmulators
   * Wiz, Lemonboy (with menu) http://dl.openhandhelds.org/cgi-bin/wiz.cgi?0,0,0,0,46,133
   * [http://en.wikipedia.org/wiki/DBox2 DBox2] http://sourceforge.net/p/tuxbox-cvs/apps/ci/master/tree/tuxbox/funstuff/gnuboy/
   * Kindle, K3 http://www.mobileread.com/forums/showthread.php?t=173141
+  * Symbian, https://github.com/Summeli/gnuboy
