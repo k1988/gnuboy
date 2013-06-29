@@ -23,11 +23,11 @@ make -B -f Makfile.win
 
 = Linux =
 
-Tested under x86. Known to work with gcc 4.2.2.
+Tested under x86. Known to work with gcc 4.2.2 and 4.6.3.
 
 {{{
 sh ./configure --with-sdl
-make
+make -B sdlgnuboy 2>&1 |tee build_sdl.log
 }}}
 
 
