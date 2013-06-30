@@ -885,7 +885,7 @@ int cpu_emulate(int cycles)
 		cpu_timers(clen);
 
 		i -= clen;
-	} // while(i > 0)
+	} /* while(i > 0) */
 	
 	return cycles-i;
 }

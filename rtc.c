@@ -110,7 +110,7 @@ void rtc_save_internal(FILE *f)
 	fwrite((const void*)&rt, sizeof(rt), 1, f);
 #else /* GNUBOY_USE_BINARY_RTC_FILES */
 	fprintf(f, "%d %d %d %02d %02d %02d %02d\n%d\n",
-		rtc.carry, rtc.stop, rtc.d, rtc.h, rtc.m, rtc.s, rtc.t, rt);
+		rtc.carry, rtc.stop, rtc.d, rtc.h, rtc.m, rtc.s, rtc.t, (int)rt);
 #endif /* GNUBOY_USE_BINARY_RTC_FILES */
 }
 
@@ -131,7 +131,7 @@ void rtc_load_internal(FILE *f)
 	fscanf(
 		f, "%d %d %d %02d %02d %02d %02d\n%d\n",
 		&rtc.carry, &rtc.stop, &rtc.d,
-		&rtc.h, &rtc.m, &rtc.s, &rtc.t, &rt);
+		&rtc.h, &rtc.m, &rtc.s, &rtc.t, (int *)&rt);
 #endif /* GNUBOY_USE_BINARY_RTC_FILES */
 	while (rtc.t >= 60) rtc.t -= 60;
 	while (rtc.s >= 60) rtc.s -= 60;

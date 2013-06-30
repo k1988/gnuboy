@@ -97,6 +97,7 @@ void sys_initpath()
 
 void sys_sanitize(char *s)
 {
+	(void) s; /* avoid warning about unused parameter */
 }
 
 

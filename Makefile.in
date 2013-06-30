@@ -15,6 +15,10 @@ CFLAGS = @CFLAGS@
 # SDL port includes screen shot support already.
 #CFLAGS += -DGNUBOY_NO_SCREENSHOT
 
+# gcc 4.x configure tends to default to '-ansi -pedantic'
+# avoid warnings related to strdup()
+CFLAGS += -D_XOPEN_SOURCE=500
+
 LDFLAGS = $(CFLAGS) @LDFLAGS@
 ASFLAGS = $(CFLAGS)
 

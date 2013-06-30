@@ -82,7 +82,7 @@ static int mapscancode(SDLKey sym)
 
 	int i;
 	for (i = 0; keymap[i][0]; i++)
-		if (keymap[i][0] == sym)
+		if (keymap[i][0] == (int)sym)
 			return keymap[i][1];
 	if (sym >= '0' && sym <= '9')
 		return sym;

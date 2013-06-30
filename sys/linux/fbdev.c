@@ -8,6 +8,7 @@
  */
 
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -210,11 +211,11 @@ void vid_init()
 		vmode[0] = 160 * scale;
 		vmode[1] = 144 * scale;
 	}
-	if (vmode[0] > vi.xres) vmode[0] = vi.xres;
-	if (vmode[1] > vi.yres) vmode[1] = vi.yres;
+	if (vmode[0] > (int)vi.xres) vmode[0] = vi.xres;
+	if (vmode[1] > (int)vi.yres) vmode[1] = vi.yres;
 	
 	mmio = mmap(0, fi.mmio_len, PROT_READ|PROT_WRITE, MAP_SHARED, fbfd, fi.smem_len);
-	if ((int)mmio == -1) mmio = 0;
+	if (mmio == MAP_FAILED) mmio = 0;
 
 	overlay_init();
 
@@ -247,6 +248,7 @@ void vid_preinit()
 
 void vid_settitle(char *title)
 {
+	(void) title; /* avoid warning about unused parameter */
 }
 
 void vid_setpal(int i, int r, int g, int b)
