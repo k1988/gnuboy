@@ -10,7 +10,6 @@
 
 #include <stdlib.h>
 #include <string.h>
-char *strdup();
 #include <unistd.h>
 #include <sys/mman.h>
 #include <linux/fb.h>
