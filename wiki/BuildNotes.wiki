@@ -4,7 +4,7 @@ GCC is known to work on a number on platforms.
 
 There is an autotools configure shell script, try that first. For cross compiling you may want to create a static Makefile, see the examples in the source already (Windows and Dingoo).
 
-= Compile/Biuld options =
+= Compile/Build options =
 
 There are a few options in the code that can be disabled, e.g. in case libraries are not available or functionality is not wanted (or implemented in a specific port). E.g.:
 
