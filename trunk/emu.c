@@ -85,7 +85,7 @@ void emu_run()
 	int delay;
 
 	vid_begin();
-	//lcd_begin();
+	/* lcd_begin(); */
 	for (;;)
 	{
 		/* FRAME BEGIN */

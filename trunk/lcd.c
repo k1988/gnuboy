@@ -636,13 +636,13 @@ void lcd_refreshline()
 			refresh_1(dest, BUF, PAL1, 160);
 			break;
 		case 2:
-			refresh_2(dest, BUF, PAL2, 160);
+			refresh_2((un16*)dest, BUF, PAL2, 160);
 			break;
 		case 3:
 			refresh_3(dest, BUF, PAL4, 160);
 			break;
 		case 4:
-			refresh_4(dest, BUF, PAL4, 160);
+			refresh_4((un32*)dest, BUF, PAL4, 160);
 			break;
 		}
 		break;
@@ -650,16 +650,16 @@ void lcd_refreshline()
 		switch (fb.pelsize)
 		{
 		case 1:
-			refresh_2(dest, BUF, PAL2, 160);
+			refresh_2((un16*)dest, BUF, PAL2, 160);
 			break;
 		case 2:
-			refresh_4(dest, BUF, PAL4, 160);
+			refresh_4((un32*)dest, BUF, PAL4, 160);
 			break;
 		case 3:
 			refresh_3_2x(dest, BUF, PAL4, 160);
 			break;
 		case 4:
-			refresh_4_2x(dest, BUF, PAL4, 160);
+			refresh_4_2x((un32*)dest, BUF, PAL4, 160);
 			break;
 		}
 		break;
@@ -670,13 +670,13 @@ void lcd_refreshline()
 			refresh_3(dest, BUF, PAL4, 160);
 			break;
 		case 2:
-			refresh_2_3x(dest, BUF, PAL2, 160);
+			refresh_2_3x((un16*)dest, BUF, PAL2, 160);
 			break;
 		case 3:
 			refresh_3_3x(dest, BUF, PAL4, 160);
 			break;
 		case 4:
-			refresh_4_3x(dest, BUF, PAL4, 160);
+			refresh_4_3x((un32*)dest, BUF, PAL4, 160);
 			break;
 		}
 		break;
@@ -684,16 +684,16 @@ void lcd_refreshline()
 		switch (fb.pelsize)
 		{
 		case 1:
-			refresh_4(dest, BUF, PAL4, 160);
+			refresh_4((un32*)dest, BUF, PAL4, 160);
 			break;
 		case 2:
-			refresh_4_2x(dest, BUF, PAL4, 160);
+			refresh_4_2x((un32*)dest, BUF, PAL4, 160);
 			break;
 		case 3:
 			refresh_3_4x(dest, BUF, PAL4, 160);
 			break;
 		case 4:
-			refresh_4_4x(dest, BUF, PAL4, 160);
+			refresh_4_4x((un32*)dest, BUF, PAL4, 160);
 			break;
 		}
 		break;
