@@ -45,8 +45,6 @@ void emu_reset()
 	cpu_reset();
 	mbc_reset();
 	sound_reset();
-	
-	lcdc_trans(); /* Set lcdc ahead */
 }
 
 
@@ -85,12 +83,19 @@ void emu_run()
 	int delay;
 
 	vid_begin();
-	/* lcd_begin(); */
+	lcd_begin();
 	for (;;)
 	{
 		/* FRAME BEGIN */
 		
-		while (R_LY < 144)
+		/* FIXME: djudging by the time specified this was intended
+		to emulate through vblank phase which is handled at the
+		end of the loop. */
+		cpu_emulate(2280);
+		
+		/* FIXME: R_LY >= 0; comparsion to zero can also be removed
+		altogether, R_LY is always 0 at this point */
+		while (R_LY > 0 && R_LY < 144)
 		{
 			/* Step through visible line scanning phase */
 			emu_step();
@@ -112,6 +117,14 @@ void emu_run()
 		doevents();
 		vid_begin();
 		if (framecount) { if (!--framecount) die("finished\n"); }
+		
+		if (!(R_LCDC & 0x80)) {
+			/* LCDC operation stopped */
+			/* FIXME: djudging by the time specified, this is
+			intended to emulate through visible line scanning
+			phase, even though we are already at vblank here */
+			cpu_emulate(32832);
+		}
 		
 		while (R_LY > 0) {
 			/* Step through vblank phase */
