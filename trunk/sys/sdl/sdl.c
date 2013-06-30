@@ -14,13 +14,15 @@
 
 #include <SDL/SDL.h>
 
-#include "SFont.h"
-#include "font8px.h"
-
 #include "gnuboy.h"
 #include "fb.h"
 #include "input.h"
 #include "rc.h"
+
+#ifndef GNUBOY_DISABLE_SDL_VIDEO
+
+#include "SFont.h"
+#include "font8px.h"
 
 struct fb fb;
 
@@ -549,6 +551,7 @@ int vid_screenshot(char *filename)
 }
 #endif /*GNUBOY_NO_SCREENSHOT */
 
+#endif /* GNUBOY_DISABLE_SDL_VIDEO */
 
 
 #ifndef GNUBOY_DISABLE_SDL_SOUND
